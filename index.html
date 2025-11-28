@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>American Skin Art – Coming Soon</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="American Skin Art – Custom tattoo studio. New website coming soon." />
+
+  <!-- Optional Google Font (you can remove this if you want it super minimal) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #050608;
+      --bg-soft: #0f1014;
+      --accent: #d4a15a;
+      --accent-soft: rgba(212, 161, 90, 0.12);
+      --text-main: #f5f5f5;
+      --text-muted: #acacb3;
+      --border-soft: rgba(255, 255, 255, 0.06);
+      --radius-lg: 20px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #1b1d25 0, #050608 55%);
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .frame {
+      width: 100%;
+      max-width: 720px;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(140deg, rgba(212, 161, 90, 0.08), rgba(9, 10, 14, 0.95));
+      box-shadow:
+        0 24px 80px rgba(0, 0, 0, 0.9),
+        0 0 0 1px var(--border-soft);
+      padding: 28px 24px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .frame::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(212, 161, 90, 0.16), transparent 55%);
+      pointer-events: none;
+    }
+
+    .frame-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      border: 1px solid rgba(212, 161, 90, 0.3);
+      color: var(--accent);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 6px rgba(212, 161, 90, 0.25);
+    }
+
+    .brand {
+      margin-bottom: 16px;
+    }
+
+    .brand-name {
+      font-family: "Cormorant Garamond", "Times New Roman", serif;
+      font-size: clamp(34px, 5vw, 42px);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-main);
+    }
+
+    .brand-divider {
+      margin-top: 8px;
+      width: 64px;
+      height: 1px;
+      background: linear-gradient(to right, var(--accent), transparent);
+    }
+
+    .tagline {
+      margin-top: 16px;
+      font-size: 13px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .content {
+      margin-top: 26px;
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.2fr);
+      gap: 24px;
+    }
+
+    @media (max-width: 640px) {
+      .frame {
+        padding: 22px 18px 20px;
+      }
+
+      .content {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .heading {
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .subtext {
+      font-size: 14px;
+      line-height: 1.5;
+      color: var(--text-muted);
+    }
+
+    .subtext strong {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .details {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 18px;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .details-label {
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 11px;
+      color: #7f8088;
+    }
+
+    .details-value {
+      color: var(--text-main);
+      font-size: 14px;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .pill {
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 5px 10px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+      background: rgba(9, 10, 14, 0.8);
+    }
+
+    .card {
+      border-radius: 16px;
+      border: 1px solid var(--border-soft);
+      background: rgba(6, 7, 10, 0.9);
+      padding: 16px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(212, 161, 90, 0.7);
+      background: linear-gradient(135deg, rgba(212, 161, 90, 0.18), rgba(212, 161, 90, 0.03));
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 500;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+      border-color: rgba(212, 161, 90, 1);
+    }
+
+    .btn-primary-icon {
+      font-size: 14px;
+    }
+
+    .cta-note {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .contact-line {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .contact-line a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .contact-line a:hover {
+      text-decoration: underline;
+    }
+
+    .footer {
+      margin-top: 20px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #70717a;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+  </style>
+</head>
+<body>
+  <main class="frame" role="main">
+    <div class="frame-inner">
+      <div class="badge">
+        <span class="badge-dot" aria-hidden="true"></span>
+        <span>New website coming soon</span>
+      </div>
+
+      <header class="brand">
+        <div class="brand-name">American Skin Art</div>
+        <div class="brand-divider"></div>
+        <p class="tagline">Custom Tattoo Studio</p>
+      </header>
+
+      <section class="content">
+        <!-- Left: text -->
+        <div>
+          <h1 class="heading">We&rsquo;re putting the new site under the needle.</h1>
+          <p class="subtext">
+            Our full website is in progress. Soon you&rsquo;ll be able to browse
+            artist portfolios, flash, booking info, and studio updates all in one place.
+            For now, you can still <strong>reach the shop directly</strong> to talk
+            designs, appointments, and availability.
+          </p>
+
+          <div class="details">
+            <div>
+              <div class="details-label">Booking & Questions</div>
+              <div class="details-value">
+                <!-- TODO: Replace with real phone / email -->
+                Call the shop or email us and we’ll get you set up.
+              </div>
+            </div>
+
+            <div>
+              <div class="details-label">What to Expect Online</div>
+              <div class="pill-row">
+                <div class="pill">Artist Portfolios</div>
+                <div class="pill">Healed & Fresh Work</div>
+                <div class="pill">Booking Info</div>
+                <div class="pill">Studio Policies</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: quick contact card -->
+        <aside class="card" aria-label="Contact options">
+          <div>
+            <div class="details-label">Get in touch</div>
+            <p class="contact-line">
+              <!-- Replace these placeholders when ready -->
+              Phone: <strong>(XXX) XXX-XXXX</strong><br />
+              Email: <a href="mailto:info@americanskinart.com">info@americanskinart.com</a>
+            </p>
+          </div>
+
+          <div class="cta-row">
+            <a class="btn-primary" href="mailto:info@americanskinart.com">
+              <span>Book a consult</span>
+              <span class="btn-primary-icon">&#10140;</span>
+            </a>
+            <p class="cta-note">
+              Send us your ideas, reference images, or questions.
+            </p>
+          </div>
+        </aside>
+      </section>
+
+      <footer class="footer">
+        <span>&copy; <span id="year"></span> American Skin Art</span>
+        <span>All rights reserved</span>
+      </footer>
+    </div>
+  </main>
+
+  <script>
+    // Set current year automatically
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
