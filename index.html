@@ -218,51 +218,22 @@
 </head>
 
 <body class="inter bg-[#0b0b0b] text-zinc-100 selection:bg-red-700/50">
-  <!-- Header -->
+  <!-- Header (logo only, no nav links) -->
   <header class="fixed top-0 left-0 right-0 z-40 bg-gradient-to-b from-black/70 to-transparent" role="banner">
     <nav class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16" role="navigation" aria-label="Main navigation">
       <a href="#top" class="flex items-end gap-3 group" aria-label="Go to top">
         <span class="display text-2xl leading-none tracking-widest">American&nbsp;Skin&nbsp;Art</span>
         <span class="text-xs text-zinc-400 group-hover:text-zinc-200">North Tonawanda, NY</span>
       </a>
-      <button id="mobile-menu-button" class="md:hidden rounded-full p-2 hover:bg:white/10" aria-label="Toggle menu">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-6 h-6">
-          <path d="M4 6h16M4 12h16M4 18h16" stroke-width="2" stroke-linecap="round"/>
-        </svg>
-      </button>
-      <ul class="hidden md:flex items-center gap-8 text-sm" role="menubar">
-        <li role="none"><a href="#artists" class="hover:text-white/90 text-zinc-300" role="menuitem" aria-label="Meet our artists">Artists</a></li>
-        <li role="none"><a href="#shop" class="hover:text-white/90 text-zinc-300" role="menuitem" aria-label="Visit our shop">Shop</a></li>
-        <li role="none"><a href="faq.html" class="hover:text-white/90 text-zinc-300" role="menuitem" aria-label="Frequently asked questions">FAQ</a></li>
-        <li role="none"><a href="#contact" class="hover:text-white/90 text-zinc-300" role="menuitem" aria-label="Contact us">Contact</a></li>
-      </ul>
       <a href="https://www.instagram.com/americanskinart"
          target="_blank" rel="noopener noreferrer"
-         class="hidden md:inline-flex items-center gap-2 rounded-full bg:white/90 text-black hover:bg:white px-4 py-2 text-sm font-semibold"
+         class="hidden md:inline-flex items-center gap-2 rounded-full bg-white/90 text-black hover:bg-white px-4 py-2 text-sm font-semibold"
          aria-label="Visit American Skin Art on Instagram">
         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
           <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.5a5.5 5.5 0 1 1 0 11.001 5.5 5.5 0 0 1 0-11Zm0 2a3.5 3.5 0 1 0 0 7.001 3.5 3.5 0 0 0 0-7ZM18.5 6a1 1 0 1 1 0 2.001 1 1 0 0 1 0-2.001Z"/>
         </svg>
         <span class="sr-only">Instagram</span>
       </a>
-
-      <!-- Mobile Menu -->
-      <div id="mobile-menu" class="hidden fixed inset-0 z-50 bg-black/95 backdrop-blur">
-        <div class="flex flex-col items-center justify-center min-h-screen gap-8 text-lg">
-          <button id="close-mobile-menu" class="absolute top-4 right-4 p-2 hover:bg:white/10 rounded-full">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-6 h-6">
-              <path d="M6 18L18 6M6 6l12 12" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-          </button>
-          <a href="#top" class="hover:text-white/90 text-zinc-300">Home</a>
-          <a href="#artists" class="hover:text-white/90 text-zinc-300">Artists</a>
-          <a href="#book" class="hover:text-white/90 text-zinc-300">Book</a>
-          <a href="#shop" class="hover:text:white/90 text-zinc-300">Shop</a>
-          <a href="faq.html" class="hover:text:white/90 text-zinc-300">FAQ</a>
-          <a href="#contact" class="hover:text:white/90 text-zinc-300">Contact</a>
-          <a href="#book" class="mt-4 rounded-full bg:white/90 text-black hover:bg:white px-6 py-3">Book Now</a>
-        </div>
-      </div>
     </nav>
   </header>
 
@@ -331,8 +302,9 @@
           </div>
 
           <!-- CTA buttons under shop info on all devices -->
-        <div class="mt-6 flex flex-wrap gap-2">
-            <a href="https://share.google/s5hH7YX2zrZPiW8VM" target="_blank" rel="noopener"
+          <div class="mt-6 flex flex-wrap gap-2">
+            <a href="https://www.google.com/maps/place/American+Skin+Art/@43.0231875,-78.8826625,17z/data=!3m1!4b1!4m6!3m5!1s0x89d36e7eaaf5fd47:0x4e0f520abbe511cd!8m2!3d43.0231837!4d-78.8777916!16s%2Fg%2F125_zv0hp?hl=en-US&amp;entry=ttu&amp;g_ep=EgoyMDI1MTEyMy4xIKXMDSoASAFQAw%3D%3D"
+               target="_blank" rel="noopener"
                class="inline-flex items-center rounded-full bg-white text-black px-4 py-2 text-sm font-semibold hover:bg-zinc-100">
               See us on Google
             </a>
@@ -366,27 +338,6 @@
     </section>
   </main>
 
-  <script>
-    // Mobile menu functionality
-    const mobileMenu = document.getElementById('mobile-menu');
-    const mobileMenuButton = document.getElementById('mobile-menu-button');
-    const closeMenuButton = document.getElementById('close-mobile-menu');
-
-    function toggleMobileMenu() {
-      mobileMenu.classList.toggle('hidden');
-      document.body.classList.toggle('overflow-hidden');
-    }
-
-    mobileMenuButton.addEventListener('click', toggleMobileMenu);
-    closeMenuButton.addEventListener('click', toggleMobileMenu);
-
-    mobileMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', toggleMobileMenu);
-    });
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) toggleMobileMenu();
-    });
-  </script>
+  <!-- No mobile menu JS needed anymore -->
 </body>
 </html>
