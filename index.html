@@ -3,11 +3,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-  <link rel="manifest" href="site.webmanifest">
+
+  <!-- FAVICONS -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="512x512" href="/asa_symbol_favicon_512.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+
   <title>American Skin Art</title>
   <meta name="description" content="At American Skin Art, every tattoo starts with a conversation. Custom designs, black & grey, fine line, bold graphic, cover-ups, and small tattoos—done with safety, care, and longevity in mind." />
   <meta name="keywords" content="tattoo shop, tattoo artist, North Tonawanda, Devin Goff, custom tattoos, black and grey tattoos, fine line tattoos, cover ups, American Skin Art" />
@@ -16,23 +18,29 @@
   <meta property="og:description" content="North Tonawanda's destination for custom tattoos. View portfolio and book a consult." />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="en_US" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Cormorant+Garamond:wght@400;600;700&display=swap" rel="stylesheet">
+
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="/assets/css/styles.css">
+
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const overlay = document.getElementById('lightbox');
-      document.querySelectorAll('[data-lightbox]')?.forEach(img => {
-        img.addEventListener('click', () => {
-          overlay.querySelector('img').src = img.dataset.full || img.src;
-          overlay.classList.remove('hidden');
+      if (overlay) {
+        document.querySelectorAll('[data-lightbox]')?.forEach(img => {
+          img.addEventListener('click', () => {
+            overlay.querySelector('img').src = img.dataset.full || img.src;
+            overlay.classList.remove('hidden');
+          });
         });
-      });
-      overlay.addEventListener('click', () => overlay.classList.add('hidden'));
+        overlay.addEventListener('click', () => overlay.classList.add('hidden'));
+      }
     });
   </script>
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -202,16 +210,18 @@
     .hover\:text-white\/90:hover {
       color: #fff;
     }
+
     /* Responsive tweaks */
-    @media (max-width: 600px) {
+    @media (max-width: 640px) {
+      html { font-size: 16px; }
       h1 { font-size: 2.2rem; }
       h2 { font-size: 1.5rem; }
       .px-6 { padding-left: 1rem; padding-right: 1rem; }
       .py-20 { padding-top: 2.5rem; padding-bottom: 2.5rem; }
     }
   </style>
-
 </head>
+
 <body class="inter bg-[#0b0b0b] text-zinc-100 selection:bg-red-700/50">
   <!-- Header -->
   <header class="fixed top-0 left-0 right-0 z-40 bg-gradient-to-b from-black/70 to-transparent" role="banner">
@@ -226,7 +236,6 @@
         </svg>
       </button>
       <ul class="hidden md:flex items-center gap-8 text-sm" role="menubar">
-    
         <li role="none"><a href="#artists" class="hover:text-white/90 text-zinc-300" role="menuitem" aria-label="Meet our artists">Artists</a></li>
         <li role="none"><a href="#shop" class="hover:text-white/90 text-zinc-300" role="menuitem" aria-label="Visit our shop">Shop</a></li>
         <li role="none"><a href="faq.html" class="hover:text-white/90 text-zinc-300" role="menuitem" aria-label="Frequently asked questions">FAQ</a></li>
@@ -250,11 +259,11 @@
               <path d="M6 18L18 6M6 6l12 12" stroke-width="2" stroke-linecap="round"/>
             </svg>
           </button>
-          <a href="#portfolio" class="hover:text-white/90 text-zinc-300">Portfolio</a>
+          <a href="#top" class="hover:text-white/90 text-zinc-300">Home</a>
           <a href="#artists" class="hover:text-white/90 text-zinc-300">Artists</a>
           <a href="#book" class="hover:text-white/90 text-zinc-300">Book</a>
           <a href="#shop" class="hover:text-white/90 text-zinc-300">Shop</a>
-          <a href="faq.html class="hover:text-white/90 text-zinc-300">FAQ</a>
+          <a href="faq.html" class="hover:text-white/90 text-zinc-300">FAQ</a>
           <a href="#contact" class="hover:text-white/90 text-zinc-300">Contact</a>
           <a href="#book" class="mt-4 rounded-full bg-white/90 text-black hover:bg-white px-6 py-3">Book Now</a>
         </div>
@@ -262,97 +271,121 @@
     </nav>
   </header>
 
-  <!-- Hero -->
-  <section id="top" class="relative min-h-[92vh] flex items-center justify-center">
-    <div class="absolute inset-0">
-      <img src="/devin-back.jpg" alt="Hero artwork" class="w-full h-full object-cover grayscale contrast-125 brightness-75"/>
-      <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-black/10"></div>
-    </div>
-    <div class="relative mx-auto max-w-5xl px-6 text-center">
-      <p class="uppercase tracking-[0.35em] text-xs text-zinc-300">Custom Tattoo Studio</p>
-   <!-- Original text title replaced by logo image:
-     AMERICAN SKIN ART -->
-   <h1 class="mt-6">
-     <img src="/asa_logo_new1.png" alt="American Skin Art" loading="eager" decoding="async"
-       class="mx-auto w-[min(92%,700px)] h-auto select-none" />
-     <span class="sr-only">American Skin Art</span>
-   </h1>
-<p class="mt-6 text-zinc-300 text-base max-w-2xl mx-auto">At American Skin Art, every tattoo starts with a conversation.<br>Custom designs, black &amp; grey, fine line, bold graphic, cover-ups, <br> and small tattoos, done with safety, care, and longevity in mind.</p>
-    
-    <section class="mt-10 mb-10">
-      <div class="flex flex-col items-center justify-center">
-        <h2 class="text-5xl md:text-7xl font-extrabold tracking-widest text-white drop-shadow-lg mb-4" style="letter-spacing:0.1em;">COMING SOON</h2>
-        <p class="text-xl md:text-2xl text-zinc-300 font-semibold mb-2">Stay tuned for our new online experience.</p>
+  <main class="pt-16">
+    <!-- Hero -->
+    <section id="top" class="relative min-h-[92vh] flex items-center justify-center">
+      <div class="absolute inset-0">
+        <img src="/devin-back.jpg" alt="Hero artwork" class="w-full h-full object-cover grayscale contrast-125 brightness-75"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-black/10"></div>
+      </div>
+
+      <div class="relative mx-auto max-w-5xl px-6 text-center pb-16">
+        <p class="uppercase tracking-[0.35em] text-xs text-zinc-300">Custom Tattoo Studio</p>
+
+        <!-- Logo as title -->
+        <h1 class="mt-6">
+          <img src="/asa_logo_new1.png"
+               alt="American Skin Art"
+               loading="eager"
+               decoding="async"
+               class="mx-auto w-[min(92%,700px)] h-auto select-none" />
+          <span class="sr-only">American Skin Art</span>
+        </h1>
+
+        <p class="mt-6 text-zinc-300 text-base max-w-2xl mx-auto">
+          At American Skin Art, every tattoo starts with a conversation.<br>
+          Custom designs, black &amp; grey, fine line, bold graphic, cover-ups,<br>
+          and small tattoos, done with safety, care, and longevity in mind.
+        </p>
+
+        <section class="mt-10 mb-4">
+          <div class="flex flex-col items-center justify-center">
+            <h2 class="text-4xl md:text-6xl font-extrabold tracking-widest text-white drop-shadow-lg mb-4" style="letter-spacing:0.1em;">
+              COMING SOON
+            </h2>
+            <p class="text-lg md:text-2xl text-zinc-300 font-semibold mb-2">
+              Stay tuned for our new online experience.
+            </p>
+          </div>
+        </section>
       </div>
     </section>
-   </div>
-  </section>
 
-  <!-- Shop Info -->
-  <section id="shop" class="bg-black/40 border-y border-white/10">
-    <div class="mx-auto max-w-7xl px-6 py-20 grid lg:grid-cols-2 gap-10">
-      <div>
-  <h2 class="display text-4xl tracking-wider">American&nbsp;Skin&nbsp;Art</h2>
-        <p class="mt-3 text-zinc-300">44 Webster St, North Tonawanda, NY 14120</p>
-        <div class="mt-4 text-sm text-zinc-300">
-          <p><strong>Hours</strong></p>
-          <p>Tue–Sat: 12pm – 8pm</p>
-          <p>Sun–Mon: Closed</p>
+    <!-- Shop Info -->
+    <section id="shop" class="bg-black/40 border-y border-white/10">
+      <div class="mx-auto max-w-7xl px-6 py-20 grid gap-10 lg:grid-cols-2">
+        <div>
+          <h2 class="display text-4xl tracking-wider">American&nbsp;Skin&nbsp;Art</h2>
+          <p class="mt-3 text-zinc-300">44 Webster St, North Tonawanda, NY 14120</p>
+          <div class="mt-4 text-sm text-zinc-300 space-y-1">
+            <p><strong>Hours</strong></p>
+            <p>Tue–Sat: 12pm – 8pm</p>
+            <p>Sun–Mon: Closed</p>
+          </div>
+          <div class="mt-4 text-sm text-zinc-300 space-y-1">
+            <p><strong>Call</strong>: <a class="underline" href="tel:+17166949185">(716) 694-9185</a></p>
+            <p><strong>Email</strong>: <a class="underline" href="mailto:admin@americanskinart.com">admin@americanskinart.com</a></p>
+            <p><strong>Instagram</strong>: <a class="underline" href="https://instagram.com/americanskinart" target="_blank" rel="noopener">@americanskinart</a></p>
+            <p><strong>Google</strong>: <a class="underline" href="https://share.google/s5hH7YX2zrZPiW8VM" target="_blank" rel="noopener">Business Profile &amp; Reviews</a></p>
+          </div>
+
+          <!-- CTA buttons under shop info on all devices -->
+          <div class="mt-6 flex flex-wrap gap-2">
+            <a href="https://share.google/s5hH7YX2zrZPiW8VM" target="_blank" rel="noopener"
+               class="inline-flex items-center rounded-full bg-white text-black px-4 py-2 text-sm font-semibold hover:bg-zinc-100">
+              See us on Google
+            </a>
+            <a href="tel:+17166949185"
+               class="inline-flex items-center rounded-full border border-white/10 px-4 py-2 text-sm hover:bg-white/5">
+              Call the Shop
+            </a>
+          </div>
         </div>
-        <div class="mt-4 text-sm text-zinc-300 space-y-1">
-          <p><strong>Call</strong>: <a class="underline" href="tel:+17166949185">(716) 694-9185</a></p>
-          <p><strong>Email</strong>: <a class="underline" href="mailto:admin@americanskinart.com">admin@americanskinart.com</a></p>
-          <p><strong>Instagram</strong>: <a class="underline" href="https://instagram.com/americanskinart" target="_blank" rel="noopener">@americanskinart</a></p>
-          <p><strong>Google</strong>: <a class="underline" href="https://share.google/s5hH7YX2zrZPiW8VM" target="_blank" rel="noopener">Business Profile & Reviews</a></p>
+
+        <div class="space-y-4">
+          <div class="rounded-2xl overflow-hidden border border-white/10">
+            <iframe
+              title="Map"
+              class="w-full h-[320px] md:h-[420px]"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps?q=44%20Webster%20St%2C%20North%20Tonawanda%2C%20NY%2014120&output=embed">
+            </iframe>
+          </div>
+          <div>
+            <a href="https://www.google.com/maps/dir/?api=1&destination=44%20Webster%20St%2C%20North%20Tonawanda%2C%20NY%2014120"
+               target="_blank"
+               rel="noopener"
+               class="inline-flex items-center rounded-full bg-white text-black px-4 py-2 text-sm font-semibold hover:bg-zinc-100">
+              Get Directions
+            </a>
+          </div>
         </div>
       </div>
-      <div class="rounded-2xl overflow-hidden border border-white/10">
-        <iframe title="Map" class="w-full h-[320px] md:h-[420px]" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=44%20Webster%20St%2C%20North%20Tonawanda%2C%20NY%2014120&output=embed"></iframe>
-      </div>
-      <div class="mt-4">
-        <a href="https://www.google.com/maps/dir/?api=1&destination=44%20Webster%20St%2C%20North%20Tonawanda%2C%20NY%2014120" target="_blank" rel="noopener" class="inline-flex items-center rounded-full bg-white text-black px-4 py-2 text-sm font-semibold hover:bg-zinc-100">Get Directions</a>
-      </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <!-- CTA buttons -->
-  <div class="mt-6 flex flex-wrap gap-2">
-    <a href="https://share.google/s5hH7YX2zrZPiW8VM" target="_blank" rel="noopener"
-       class="inline-flex items-center rounded-full bg-white text-black px-4 py-2 text-sm font-semibold hover:bg-zinc-100">
-      See us on Google
-    </a>
-    <a href="tel:+17166949185"
-       class="inline-flex items-center rounded-full border border-white/10 px-4 py-2 text-sm hover:bg-white/5">
-      Call the Shop
-    </a>
-  </div>
-</div>
-
- <script>
-    // Current year
-    document.getElementById('year').textContent = new Date().getFullYear();
-
+  <script>
     // Mobile menu functionality
     const mobileMenu = document.getElementById('mobile-menu');
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const closeMenuButton = document.getElementById('close-mobile-menu');
-    const mobileMenuLinks = mobileMenu.querySelectorAll('a');
 
     function toggleMobileMenu() {
       mobileMenu.classList.toggle('hidden');
       document.body.classList.toggle('overflow-hidden');
     }
+
     mobileMenuButton.addEventListener('click', toggleMobileMenu);
     closeMenuButton.addEventListener('click', toggleMobileMenu);
-    mobileMenuLinks.forEach(link => link.addEventListener('click', toggleMobileMenu));
+
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', toggleMobileMenu);
+    });
+
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) toggleMobileMenu();
     });
   </script>
 </body>
 </html>
-
-
-
-
-
