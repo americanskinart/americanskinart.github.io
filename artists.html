@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://www.americanskinart.com/artists.html">
+
+  <title>Artists — American Skin Art</title>
+  <meta
+    name="description"
+    content="Meet the artists of American Skin Art in North Tonawanda, NY. Browse portfolios and click through to each artist’s full gallery and profile."
+  />
+  <meta name="theme-color" content="#0b0b0b" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- Tailwind + site CSS (if you have a global styles.css, keep this) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/css/styles.css">
+
+  
+
+  <!-- Simple lightbox hook (optional – for future galleries using data-lightbox) -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const overlay = document.getElementById('lightbox');
+      if (!overlay) return;
+
+      document.querySelectorAll('[data-lightbox]').forEach(img => {
+        img.addEventListener('click', () => {
+          const full = img.dataset.full || img.src;
+          overlay.querySelector('img').src = full;
+          overlay.classList.remove('hidden');
+        });
+      });
+
+      overlay.addEventListener('click', () => {
+        overlay.classList.add('hidden');
+      });
+    });
+  </script>
+</head>
+
+<body class="inter bg-[#0b0b0b] text-zinc-100 selection:bg-red-700/50 page-overlay">
+  <!-- Header -->
+  <header class="fixed top-0 left-0 right-0 z-40 bg-gradient-to-b from-black/80 to-transparent transition-colors duration-300" role="banner">
+    <nav class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-20 md:h-24 flex items-center"
+         role="navigation" aria-label="Main navigation">
+
+      <!-- Mobile bar: centered ASA symbol that opens menu -->
+      <div class="flex w-full items-center justify-center sm:hidden">
+        <button id="mobile-menu-button" class="rounded-full p-2 hover:bg-white/10 flex items-center gap-3" aria-label="Toggle menu">
+          <img
+            src="images/asa_symbol_white_transparent.png"
+            alt="American Skin Art logo"
+            class="h-12 object-contain drop-shadow"
+            loading="eager"
+            decoding="async"
+          />
+        </button>
+      </div>
+
+      <!-- Desktop bar: centered nav row + IG on right -->
+      <div class="hidden sm:grid w-full grid-cols-[1fr_auto_1fr] items-center">
+        <div></div>
+        <div class="flex items-center justify-center gap-12">
+          <a href="artists.html"
+             class="text-sm tracking-[0.3em] uppercase text-zinc-300 hover:text-white/90 transition-colors">
+            Artists
+          </a>
+          <a href="shop.html"
+             class="text-sm tracking-[0.3em] uppercase text-zinc-300 hover:text-white/90 transition-colors">
+            Shop
+          </a>
+          <a href="index.html#top"
+             class="flex items-center justify-center"
+             aria-label="Go to top">
+            <img
+              src="images/asa_symbol_white_transparent.png"
+              alt="American Skin Art"
+              class="h-12 lg:h-14 object-contain"
+              loading="eager"
+              decoding="async"
+            />
+          </a>
+          <a href="faq.html"
+             class="text-sm tracking-[0.3em] uppercase text-zinc-300 hover:text-white/90 transition-colors">
+            FAQ
+          </a>
+          <a href="contact.html"
+             class="text-sm tracking-[0.3em] uppercase text-zinc-300 hover:text-white/90 transition-colors">
+            Contact
+          </a>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="hidden fixed inset-0" style="z-index: 9999 !important; background-color: #000000 !important; background-image: none !important;">
+        <div class="flex flex-col items-center justify-center min-h-screen gap-8 text-lg" style="background-color: #000000 !important; width: 100%; height: 100%;">
+          <button id="close-mobile-menu" class="absolute top-4 right-4 p-2 hover:bg-white/10 rounded-full">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-6 h-6">
+              <path d="M6 18L18 6M6 6l12 12" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </button>
+          <a href="index.html#top" class="hover:opacity-80 transition-opacity" aria-label="Go to top">
+            <img
+              src="images/asa_symbol_white_transparent.png"
+              alt="American Skin Art"
+              class="h-20 object-contain drop-shadow mb-4"
+              loading="eager"
+              decoding="async"
+            />
+          </a>
+          <a href="index.html#portfolio" class="hover:text-white/90 text-zinc-300">Portfolio</a>
+          <a href="artists.html" class="hover:text-white/90 text-zinc-300">Artists</a>
+          <a href="shop.html" class="hover:text-white/90 text-zinc-300">Shop</a>
+          <a href="faq.html" class="hover:text-white/90 text-zinc-300">FAQ</a>
+          <a href="contact.html" class="hover:text-white/90 text-zinc-300">Contact</a>
+          <a href="index.html#book" class="mt-4 w-full ink-button justify-center">Book Now</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+    <main id="top" class="pt-16 pb-12">
+
+    <!-- HERO: MEET THE ARTISTS -->
+<section class="relative py-16 md:py-20">
+  <!-- Local gradient for hero -->
+  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent pointer-events-none"></div>
+  <div class="relative mx-auto max-w-5xl px-6 text-center">
+    <h1 class="mt-4">
+      <img
+        src="images/meet_the_artists.png"
+        alt="Meet the Artists"
+        loading="eager"
+        decoding="async"
+        class="mx-auto w-full max-w-[220px] md:max-w-[320px] lg:max-w-[420px] h-auto select-none drop-shadow-2xl"
+      />
+      <span class="sr-only">Meet the Artists</span>
+    </h1>
+  </div>
+</section>
+
+
+      <!-- ARTISTS STAGGERED LAYOUT -->
+      <section id="artists" class="mx-auto max-w-7xl px-6 py-10 space-y-16">
+        <!-- DEVIN -->
+        <a href="sinisterblack_tattoos.html"
+           class="group block rounded-3xl border border-white/10 bg-gradient-to-br from-black/80 via-black/70 to-zinc-900/70 overflow-hidden">
+          <div class="grid gap-8 lg:grid-cols-12 items-center">
+            <!-- Image -->
+            <div class="lg:col-span-5">
+              <div class="rounded-2xl overflow-hidden border border-white/10 h-full min-h-[360px]">
+                <img
+                  src="images/artists/sinisterblack_tattoos/cover.png"
+                  alt="Tattoo work by Devin Goff (@sinisterblack_tattoos)"
+                  class="w-full h-full max-h-[480px] object-cover grayscale group-hover:grayscale-0 group-hover:scale-[1.03] transition duration-500"
+                />
+              </div>
+            </div>
+
+            <!-- Text -->
+            <div class="lg:col-span-7 lg:pr-10 px-6 lg:px-0 py-6 lg:py-8">
+              <p class="text-[0.7rem] uppercase tracking-[0.3em] text-zinc-400">
+                Owner · Lead Artist
+              </p>
+              <h2 class="display text-3xl tracking-[0.25em] mt-2">
+                Devin&nbsp;Goff
+              </h2>
+              <p class="mt-4 text-zinc-200 text-sm">
+                Bold black &amp; grey, heavy contrast, and graphic imagery with a classic
+                tattoo feel. Devin focuses on custom pieces that age well and read clearly
+                from across the room.
+              </p>
+
+              <div class="mt-4 flex flex-wrap gap-2 text-[0.65rem] uppercase tracking-[0.2em] text-zinc-300">
+                <span class="rounded-full border border-white/10 px-3 py-1 bg-white/5">Black &amp; Grey</span>
+                <span class="rounded-full border border-white/10 px-3 py-1 bg-white/5">Bold Graphic</span>
+                <span class="rounded-full border border-white/10 px-3 py-1 bg-white/5">Large Scale</span>
+              </div>
+
+              <p class="mt-4 text-xs text-zinc-400">
+                @sinisterblack_tattoos
+              </p>
+
+              <p class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-zinc-50">
+                View Devin’s full profile &amp; gallery
+                <span aria-hidden="true"
+                      class="inline-block translate-x-0 group-hover:translate-x-1 transition-transform">
+                  →
+                </span>
+              </p>
+            </div>
+          </div>
+        </a>
+
+        <!-- DANNY (reversed layout on large screens) -->
+        <a href="dannypeltier.ink.html"
+           class="group block rounded-3xl border border-white/10 bg-gradient-to-bl from-black/80 via-black/70 to-zinc-900/70 overflow-hidden">
+          <div class="grid gap-8 lg:grid-cols-12 items-center">
+            <!-- Text -->
+            <div class="lg:col-span-7 lg:pl-10 order-2 lg:order-1 px-6 lg:px-0 py-6 lg:py-8">
+              <p class="text-[0.7rem] uppercase tracking-[0.3em] text-zinc-400">
+                Tattoo Artist
+              </p>
+              <h2 class="display text-3xl tracking-[0.25em] mt-2">
+                Danny&nbsp;Peltier
+              </h2>
+              <p class="mt-4 text-zinc-200 text-sm">
+                Clean linework and thoughtful composition with a mix of illustrative,
+                neo-traditional, and pop-culture-inspired pieces. Danny is big on
+                readable designs that stay fun for the long haul.
+              </p>
+
+              <div class="mt-4 flex flex-wrap gap-2 text-[0.65rem] uppercase tracking-[0.2em] text-zinc-300">
+                <span class="rounded-full border border-white/10 px-3 py-1 bg-white/5">Illustrative</span>
+                <span class="rounded-full border border-white/10 px-3 py-1 bg-white/5">Neo-Traditional</span>
+                <span class="rounded-full border border-white/10 px-3 py-1 bg-white/5">Pop Culture</span>
+              </div>
+
+              <p class="mt-4 text-xs text-zinc-400">
+                @dannypeltier.ink
+              </p>
+
+              <p class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-zinc-50">
+                View Danny’s full profile &amp; gallery
+                <span aria-hidden="true"
+                      class="inline-block translate-x-0 group-hover:translate-x-1 transition-transform">
+                  →
+                </span>
+              </p>
+            </div>
+
+            <!-- Image -->
+            <div class="lg:col-span-5 order-1 lg:order-2">
+              <div class="rounded-2xl overflow-hidden border border-white/10 h-full min-h-[360px]">
+                <img
+                  src="images/artists/dannypeltier.ink/cover.png"
+                  alt="Tattoo work by Danny Peltier (@dannypeltier.ink)"
+                  class="w-full h-full max-h-[480px] object-cover grayscale group-hover:grayscale-0 group-hover:scale-[1.03] transition duration-500"
+                />
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <!-- DALE -->
+        <a href="cruelbloomtattoo.html"
+           class="group block rounded-3xl border border-white/10 bg-gradient-to-br from-black/80 via-black/70 to-zinc-900/70 overflow-hidden">
+          <div class="grid gap-8 lg:grid-cols-12 items-center">
+            <!-- Image -->
+            <div class="lg:col-span-5">
+              <div class="rounded-2xl overflow-hidden border border-white/10 h-full min-h-[360px]">
+                <img
+                  src="images/artists/cruelbloomtattoo/cover.png"
+                  alt="Tattoo work by Dale Murray (@cruelbloomtattoo)"
+                  class="w-full h-full max-h-[480px] object-cover grayscale group-hover:grayscale-0 group-hover:scale-[1.03] transition duration-500"
+                />
+              </div>
+            </div>
+
+            <!-- Text -->
+            <div class="lg:col-span-7 lg:pr-10 px-6 lg:px-0 py-6 lg:py-8">
+              <p class="text-[0.7rem] uppercase tracking-[0.3em] text-zinc-400">
+                Tattoo Artist
+              </p>
+              <h2 class="display text-3xl tracking-[0.25em] mt-2">
+                Dale&nbsp;Murray
+              </h2>
+              <p class="mt-4 text-zinc-200 text-sm">
+                Fine detail, floral elements, and softer black &amp; grey pieces with
+                a strong sense of flow. Dale’s work leans into texture, movement, and
+                designs that sit naturally on the body.
+              </p>
+
+              <div class="mt-4 flex flex-wrap gap-2 text-[0.65rem] uppercase tracking-[0.2em] text-zinc-300">
+                <span class="rounded-full border border-white/10 px-3 py-1 bg-white/5">Black &amp; Grey</span>
+                <span class="rounded-full border border-white/10 px-3 py-1 bg-white/5">Floral &amp; Organic</span>
+                <span class="rounded-full border border-white/10 px-3 py-1 bg-white/5">Textured Detail</span>
+              </div>
+
+              <p class="mt-4 text-xs text-zinc-400">
+                @cruelbloomtattoo
+              </p>
+
+              <p class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-zinc-50">
+                View Dale’s full profile &amp; gallery
+                <span aria-hidden="true"
+                      class="inline-block translate-x-0 group-hover:translate-x-1 transition-transform">
+                  →
+                </span>
+              </p>
+            </div>
+          </div>
+        </a>
+
+        <!-- Copy/paste one of the blocks above to add more artists -->
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+<footer class="border-t border-white/10 bg-black/60 footer-compact">
+  <div class="mx-auto max-w-7xl px-4 pt-3 pb-2 sm:px-6 sm:pt-4 flex flex-col gap-1 text-center text-zinc-500">
+    <!-- address + copyright -->
+    <p class="text-[0.5rem] sm:text-[0.65rem] leading-relaxed">
+      <a
+        href="https://www.google.com/maps?ll=43.023184,-78.877792&z=16&t=m&hl=en-US&gl=US&mapclient=embed&cid=5624804665664541133"
+        target="_blank"
+        rel="noopener"
+        class="hover:text-white transition inline-block"
+      >
+        American&nbsp;Skin&nbsp;Art<br>
+        44 Webster St&nbsp;&middot;&nbsp;North&nbsp;Tonawanda,&nbsp;NY<br>
+        &copy; <span id="year"></span> American Skin Art. All rights reserved.<br>
+      </a>
+    </p>
+    <a href="https://instagram.com/ffogekaj" target="_blank" rel="noopener" class="inline-block text-[0.55rem] uppercase tracking-[0.25em] text-zinc-500 hover:text-white"> Site by doomsday
+    </a>
+  </div>
+</footer>
+
+
+  <!-- LIGHTBOX OVERLAY (for future gallery use) -->
+  <div id="lightbox"
+       class="hidden fixed inset-0 bg-black/90 backdrop-blur z-50 flex items-center justify-center p-6">
+    <img
+      class="max-h-[90vh] max-w-[90vw] rounded-xl border border-white/10"
+      alt="Artwork preview" />
+  </div>
+
+  <!-- SCRIPTS: YEAR + MOBILE MENU -->
+  <script>
+    // Year
+    const yearEl = document.getElementById('year');
+    if (yearEl) {
+      yearEl.textContent = new Date().getFullYear();
+    }
+
+    // Mobile menu
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const closeMenuButton = document.getElementById('close-mobile-menu');
+    const mobileMenuLinks = mobileMenu ? mobileMenu.querySelectorAll('a') : [];
+
+    function toggleMobileMenu() {
+      if (!mobileMenu) return;
+      mobileMenu.classList.toggle('hidden');
+      document.body.classList.toggle('overflow-hidden');
+    }
+
+    if (mobileMenuButton) mobileMenuButton.addEventListener('click', toggleMobileMenu);
+    if (closeMenuButton) closeMenuButton.addEventListener('click', toggleMobileMenu);
+    mobileMenuLinks.forEach(link => link.addEventListener('click', toggleMobileMenu));
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileMenu && !mobileMenu.classList.contains('hidden')) {
+        toggleMobileMenu();
+      }
+    });
+
+    const header = document.querySelector('header[role="banner"]');
+    const navBar = header ? header.querySelector('nav') : null;
+    const updateHeaderBackground = () => {
+      if (!header) return;
+      const isSolid = window.scrollY > 10;
+      header.classList.toggle('header-solid', isSolid);
+      if (navBar) navBar.classList.toggle('nav-solid', isSolid);
+    };
+    updateHeaderBackground();
+    window.addEventListener('scroll', updateHeaderBackground, { passive: true });
+  </script>
+
+  <!-- Floating Creator Badge (avatar above text) -->
+<div id="creator-badge" class="fixed bottom-4 right-4 z-50 flex flex-col items-center gap-1.5 bg-black/60 backdrop-blur rounded-2xl shadow-lg px-2.5 py-2.5">
+    <a href="https://instagram.com/ffogekaj" target="_blank" rel="noopener"
+       aria-label="Visit @ffogekaj on Instagram"
+       class="block rounded-full p-0.5 bg-black/60">
+      <img src="images/artists/creator-pfp.png" alt="" class="w-[48px] h-[48px] rounded-full block select-none" />
+    </a>
+    <p class="text-[0.6rem] text-zinc-300 m-0 whitespace-nowrap select-none text-center tracking-[0.2em] uppercase">
+      Site by doomsday
+    </p>
+  </div>
+</body>
+</html>

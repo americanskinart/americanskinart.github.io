@@ -1,0 +1,540 @@
+/* Base Variables */
+:root {
+  --ink: #0a0a0a;
+  --paper: #0b0b0b;
+  --blood: #c1121f;
+  --steel: #bdbdbd;
+}
+
+/* Base Styles */
+html {
+  scroll-behavior: smooth;
+  min-height: 100%;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+  background-color: #050505 !important;
+  background-image: url('../../images/devin-back.png') !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  background-attachment: fixed !important;
+  color: #f1f1f1;
+  min-height: 100vh;
+  position: relative;
+  z-index: 0;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+}
+.page-overlay footer,
+footer {
+  margin-top: auto;
+}
+
+
+/* Typography */
+h1, h2, h3, h4, h5, h6,
+.display {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.display {
+  letter-spacing: 0.2em;
+}
+
+::selection {
+  background: #f4f4f4;
+  color: #0b0b0b;
+}
+
+.page-overlay {
+  position: relative;
+  z-index: 0;
+}
+
+.page-overlay::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(circle at top, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.9));
+  pointer-events: none;
+}
+
+.inter {
+  font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+/* Slider Styles */
+#recent-showcase {
+  position: relative;
+  overflow: hidden;
+  background-color: #000000; /* NEW: solid backing so page BG doesn't show */
+}
+
+#recent-showcase .slider {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 14px;
+  background: #000000;
+  height: 850px;
+}
+
+#recent-showcase .slides {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform .45s ease;
+  align-items: center;
+  background: #000000;
+}
+
+#recent-showcase .slide {
+  min-width: 100%;
+  height: 100%;
+  margin: 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000000;
+  padding: 2rem;
+  padding-bottom: 7rem;
+}
+
+#recent-showcase img {
+  display: block;
+  max-width: 95%;
+  max-height: 95%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  background: #000000;
+}
+
+#recent-showcase .caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: .75rem 1rem;
+  background: linear-gradient(transparent, rgba(0,0,0,.65));
+  font-size: .9rem;
+  color: rgba(255,255,255,.9);
+}
+
+#recent-showcase .nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #000000;
+  border: 2px solid #ffffff;
+  border-radius: 4px;
+  padding: .75rem 1rem;
+  cursor: pointer;
+  color: #ffffff;
+  font-size: 1.25rem;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+}
+
+#recent-showcase .nav:hover {
+  background: #1a1a1a;
+}
+
+#recent-showcase .nav.prev {
+  left: 1rem;
+}
+
+#recent-showcase .nav.next {
+  right: 1rem;
+}
+
+#recent-showcase .dots {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  gap: .5rem;
+  background: #000000;
+  padding: 1rem 0;
+  border-top: 1px solid rgba(255,255,255,.15);
+}
+
+#recent-showcase .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.4);
+  border: 0;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+#recent-showcase .dot:hover {
+  background: rgba(255,255,255,.6);
+}
+
+#recent-showcase .dot[aria-selected="true"] {
+  background: #ffffff;
+}
+
+/* Mobile-only overrides for the Recent Work slider */
+@media (max-width: 640px) {
+  #recent-showcase .slider {
+    height: auto;
+    max-height: 80vh;
+    max-width: 100%;
+    width: 100%;
+    margin-inline: auto;
+  }
+
+  #recent-showcase .slides {
+    align-items: stretch;
+  }
+
+  #recent-showcase .slide {
+    padding: 0.5rem;
+  }
+
+  /* Make sure images scale inside the mobile slider without cropping */
+  #recent-showcase img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  /* Hide slider arrows on mobile (prev/next buttons) */
+  #recent-showcase .nav {
+    display: none;
+  }
+}
+
+
+/* Form Styles */
+.form-input {
+  width: 100%;
+  border-radius: 0.75rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.75rem 1rem;
+}
+
+.form-input:focus {
+  border-color: rgba(185, 28, 28, 0.5);
+  outline: none;
+  box-shadow: 0 0 0 1px rgba(185, 28, 28, 0.3);
+}
+
+/* Transitions */
+.transition-transform {
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+/* Accessibility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Loading States */
+.loading {
+  position: relative;
+}
+
+.loading::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Error States */
+.error-message {
+  color: var(--blood);
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+.input-error {
+  border-color: var(--blood) !important;
+}
+
+/* Header State */
+header[role="banner"] {
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+header[role="banner"] nav {
+  transition: background-color 0.3s ease;
+  background-color: transparent;
+}
+
+.header-solid {
+  background-image: none !important;
+  background-color: rgba(0, 0, 0, 0.98) !important;
+  backdrop-filter: blur(14px);
+}
+
+.nav-solid {
+  background-color: transparent;
+}
+
+header[role="banner"].header-solid nav {
+  background-color: transparent;
+}
+
+@supports not (backdrop-filter: blur(1px)) {
+  .header-solid {
+    background-color: #050505 !important;
+  }
+}
+
+/* Mobile Header */
+@media (max-width: 639px) {
+  header[role="banner"] {
+    background-color: transparent;
+  }
+
+  header[role="banner"].header-solid {
+    background-color: rgba(0, 0, 0, 0.98) !important;
+  }
+
+  header[role="banner"] nav {
+    background-color: transparent;
+  }
+
+  /* Mobile Menu - Solid Black Background */
+  #mobile-menu {
+    background-color: #000000 !important;
+    background-image: none !important;
+    isolation: isolate !important;
+  }
+
+  #mobile-menu::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: #000000;
+    z-index: -1;
+  }
+}
+
+/* Ink Splatter Buttons */
+.ink-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  padding: 0.85rem 1.75rem;
+  border-radius: 999px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  background-color: #050505;
+  color: #f7f4f2 !important;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.45);
+  overflow: hidden;
+  isolation: isolate;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.ink-button.w-full,
+.ink-button.full-width {
+  display: flex;
+  width: 100%;
+}
+
+.ink-button::before,
+.ink-button::after {
+  content: '';
+  position: absolute;
+  inset: -20%;
+  border-radius: 50%;
+  opacity: 0.7;
+  mix-blend-mode: screen;
+  z-index: -1;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.ink-button::before {
+  background-image:
+    radial-gradient(circle at 25% 30%, rgba(255, 255, 255, 0.18) 0%, transparent 45%),
+    radial-gradient(circle at 70% 25%, rgba(185, 28, 28, 0.4) 0%, transparent 48%),
+    radial-gradient(circle at 40% 70%, rgba(255, 255, 255, 0.12) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 40%);
+}
+
+.ink-button::after {
+  opacity: 0;
+  transform: scale(0.8) rotate(-8deg);
+  background-image:
+    radial-gradient(circle at 30% 60%, rgba(255, 255, 255, 0.14) 0%, transparent 45%),
+    radial-gradient(circle at 65% 70%, rgba(185, 28, 28, 0.35) 0%, transparent 55%),
+    radial-gradient(circle at 80% 35%, rgba(255, 255, 255, 0.12) 0%, transparent 50%);
+}
+
+.ink-button:hover,
+.ink-button:focus-visible {
+  transform: translateY(-2px) scale(1.01);
+  border-color: rgba(255, 255, 255, 0.32);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.55);
+}
+
+.ink-button:hover::after,
+.ink-button:focus-visible::after {
+  opacity: 0.6;
+  transform: scale(1) rotate(4deg);
+}
+
+.ink-button:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.5);
+  outline-offset: 3px;
+}
+
+.memorial-block {
+  justify-content: flex-start;
+  text-align: left;
+}
+
+/* Footer compact for index.html - 10% smaller */
+.footer-compact {
+  transform: scale(0.9);
+  transform-origin: bottom center;
+}
+
+/* Footer responsiveness */
+@media (max-width: 640px) {
+  footer {
+    padding-bottom: 2rem !important;
+  }
+
+  footer.border-t .mx-auto .flex.flex-wrap {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.65rem;
+  }
+
+  footer.border-t .mx-auto .flex.flex-wrap a {
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 999px;
+    padding: 0.4rem 0.75rem;
+    font-size: 0.7rem;
+  }
+
+  footer.border-t .mx-auto p.uppercase {
+    letter-spacing: 0.18em;
+    font-size: 0.6rem;
+    line-height: 1.5;
+    white-space: normal;
+  }
+
+  footer.border-t .memorial-block {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 0.55rem;
+  }
+
+  #creator-badge {
+    display: none;
+  }
+
+  /* Slider height adjustment for mobile */
+  #recent-showcase .slider {
+    height: 500px;
+  }
+
+  /* Shop slideshow mobile optimization */
+  #shop-slideshow {
+    aspect-ratio: 4 / 5 !important;
+  }
+}
+
+/* Shop slideshow desktop */
+@media (min-width: 640px) {
+  #shop-slideshow {
+    aspect-ratio: 16 / 5 !important;
+  }
+}
+/* Compact footer text for index.html */
+footer.footer-compact {
+  transform: none;            /* cancel the old scale trick if it exists */
+}
+
+/* Make the footer text smaller */
+footer.footer-compact p,
+footer.footer-compact a,
+footer.footer-compact span {
+  font-size: 0.55rem;         /* mobile size */
+  line-height: 1.4;
+}
+
+/* Slightly larger on small screens and up */
+@media (min-width: 640px) {
+  footer.footer-compact p,
+  footer.footer-compact a,
+  footer.footer-compact span {
+    font-size: 0.65rem;
+  }
+}
+
+/* Give the slider section a solid background so the tattoo page BG
+   doesn't show around the card edges on mobile */
+#recent-showcase {
+  background-color: #000000;
+}
+
+/* Mobile-specific tweaks */
+@media (max-width: 640px) {
+  /* Tiny padding so the rounded border sits cleanly on black */
+  #recent-showcase {
+    padding-inline: 0.5rem;
+  }
+
+  /* Make sure images scale nicely without forcing height */
+  #recent-showcase img {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    background-color: #000000;
+  }
+}
+
+/* Make the whole recent-showcase section solid black
+   so nothing shows around the slider's rounded corners */
+#recent-showcase {
+  background-color: #000000;
+}
+
+/* Beef up the dot bar so it covers more area visually */
+#recent-showcase .dots {
+  padding: 1.25rem 0 1.5rem;   /* taller bar */
+  background-color: #000000;   /* ensure solid black */
+}

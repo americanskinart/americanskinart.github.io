@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact — American Skin Art</title>
+  <meta name="description" content="Contact American Skin Art. Get in touch for questions, appointments, or more info." />
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="inter bg-[#0b0b0b] text-zinc-100 selection:bg-red-700/50 page-overlay text-lg leading-[1.85]">
+  <!-- Header -->
+  <header class="fixed top-0 left-0 right-0 z-40 bg-gradient-to-b from-black/80 to-transparent transition-colors duration-300" role="banner">
+    <nav class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-20 md:h-24 flex items-center"
+         role="navigation" aria-label="Main navigation">
+      <!-- Mobile bar: centered ASA symbol that opens menu -->
+      <div class="flex w-full items-center justify-center sm:hidden">
+        <button id="mobile-menu-button" class="rounded-full p-2 hover:bg-white/10 flex items-center gap-3" aria-label="Toggle menu">
+          <img
+            src="images/asa_symbol_white_transparent.png"
+            alt="American Skin Art logo"
+            class="h-12 object-contain drop-shadow"
+            loading="eager"
+            decoding="async"
+          />
+        </button>
+      </div>
+      <!-- Desktop bar: centered nav row + IG on right -->
+      <div class="hidden sm:grid w-full grid-cols-[1fr_auto_1fr] items-center">
+        <div></div>
+        <div class="flex items-center justify-center gap-12">
+          <a href="artists.html"
+             class="text-sm tracking-[0.3em] uppercase text-zinc-300 hover:text-white/90 transition-colors">
+            Artists
+          </a>
+          <a href="shop.html"
+             class="text-sm tracking-[0.3em] uppercase text-zinc-300 hover:text-white/90 transition-colors">
+            Shop
+          </a>
+          <a href="index.html#top"
+             class="flex items-center justify-center"
+             aria-label="Go to top">
+            <img
+              src="images/asa_symbol_white_transparent.png"
+              alt="American Skin Art"
+              class="h-12 lg:h-14 object-contain"
+              loading="eager"
+              decoding="async"
+            />
+          </a>
+          <a href="faq.html"
+             class="text-sm tracking-[0.3em] uppercase text-zinc-300 hover:text-white/90 transition-colors">
+            FAQ
+          </a>
+          <a href="contact.html"
+             class="text-sm tracking-[0.3em] uppercase text-zinc-300 hover:text-white/90 transition-colors">
+            Contact
+          </a>
+        </div>
+      </div>
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="hidden fixed inset-0" style="z-index: 9999 !important; background-color: #000000 !important; background-image: none !important;">
+        <div class="flex flex-col items-center justify-center min-h-screen gap-8 text-lg" style="background-color: #000000 !important; width: 100%; height: 100%;">
+          <button id="close-mobile-menu" class="absolute top-4 right-4 p-2 hover:bg-white/10 rounded-full">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-6 h-6">
+              <path d="M6 18L18 6M6 6l12 12" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </button>
+          <a href="index.html#top" class="hover:opacity-80 transition-opacity" aria-label="Go to top">
+            <img
+              src="images/asa_symbol_white_transparent.png"
+              alt="American Skin Art"
+              class="h-20 object-contain drop-shadow mb-4"
+              loading="eager"
+              decoding="async"
+            />
+          </a>
+          <a href="index.html#portfolio" class="hover:text-white/90 text-zinc-300">Portfolio</a>
+          <a href="artists.html" class="hover:text-white/90 text-zinc-300">Artists</a>
+          <a href="shop.html" class="hover:text-white/90 text-zinc-300">Shop</a>
+          <a href="faq.html" class="hover:text-white/90 text-zinc-300">FAQ</a>
+          <a href="contact.html" class="hover:text-white/90 text-zinc-300">Contact</a>
+          <a href="index.html#book" class="mt-4 w-full ink-button justify-center">Book Now</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Shop Info / Contact / Map -->
+  <section id="shop" class="bg-black/40 border-y border-white/10">
+    <div class="mx-auto max-w-4xl px-6 pt-32 pb-20 space-y-10">
+      <!-- Contact block -->
+      <div id="contact" class="space-y-6 text-center">
+        <div class="space-y-3">
+          <img src="images/asa_logo.png" alt="American Skin Art" class="mx-auto w-full max-w-xs drop-shadow-lg" loading="lazy">
+          <p class="text-zinc-300">
+            <a href="https://www.google.com/maps?ll=43.023184,-78.877792&z=16&t=m&hl=en-US&gl=US&mapclient=embed&cid=5624804665664541133" target="_blank" rel="noopener" class="hover:text-white transition">
+              44 Webster St, North Tonawanda, NY 14120
+            </a>
+          </p>
+        </div>
+
+        <div class="text-base text-zinc-300 space-y-1">
+          <p>
+            <span class="font-semibold">Call: </span>
+            <a class="underline" href="tel:+17166949185">(716) 694-9185</a>
+          </p>
+          <p>
+            <span class="font-semibold">Email: </span>
+            <a class="underline" href="mailto:admin@americanskinart.com">admin@americanskinart.com</a>
+          </p>
+        </div>
+
+        <div class="text-base text-zinc-300">
+          <p class="font-semibold">Hours</p>
+          <p>Tue–Sat: 12pm – 8pm</p>
+          <p>Sun–Mon: Closed</p>
+        </div>
+
+        <!-- Instagram under contact info -->
+        <div class="pt-4 border-t border-white/10">
+          </h3>
+          <ul class="mt-3 grid grid-cols-1 md:grid-cols-2 gap-5 text-xs text-zinc-400 max-w-3xl mx-auto">
+            <li class="flex justify-center">
+              <a href="https://instagram.com/americanskinart" target="_blank" rel="noopener"
+                 class="inline-flex items-center gap-4 hover:text-white w-full max-w-[280px]">
+                <span class="inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-black/60 flex-shrink-0">
+                  <img src="images/asa_symbol_white_transparent.png" alt="ASA symbol" class="h-7 w-7 opacity-90">
+                </span>
+                <span class="flex flex-col text-left leading-tight">
+                  <span class="text-base text-zinc-50">@americanskinart</span>
+                  <span class="text-[12px] text-zinc-400">(Studio)</span>
+                </span>
+              </a>
+            </li>
+            <li class="flex justify-center">
+              <a href="https://instagram.com/sinisterblack_tattoos" target="_blank" rel="noopener"
+                 class="inline-flex items-center gap-4 hover:text-white w-full max-w-[280px]">
+                <span class="inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-black/60 flex-shrink-0">
+                  <img src="images/artists/sinisterblack_tattoos/devin.png" alt="ASA symbol" class="h-7 w-7 opacity-90">
+                </span>
+                <span class="flex flex-col text-left leading-tight">
+                  <span class="text-base text-zinc-50">@sinisterblack_tattoos</span>
+                  <span class="text-[12px] text-zinc-400">(Devin Goff)</span>
+                </span>
+              </a>
+            </li>
+            <li class="flex justify-center">
+              <a href="https://instagram.com/dannypeltier.ink" target="_blank" rel="noopener"
+                 class="inline-flex items-center gap-4 hover:text-white w-full max-w-[280px]">
+                <span class="inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-black/60 flex-shrink-0">
+                  <img src="images/artists/dannypeltier.ink/danny.png" alt="ASA symbol" class="h-7 w-7 opacity-90">
+                </span>
+                <span class="flex flex-col text-left leading-tight">
+                  <span class="text-base text-zinc-50">@dannypeltier.ink</span>
+                  <span class="text-[12px] text-zinc-400">(Danny Peltier)</span>
+                </span>
+              </a>
+            </li>
+            <li class="flex justify-center">
+              <a href="https://instagram.com/cruelbloomtattoo" target="_blank" rel="noopener"
+                 class="inline-flex items-center gap-4 hover:text-white w-full max-w-[280px]">
+                <span class="inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-black/60 flex-shrink-0">
+                  <img src="images/artists/cruelbloomtattoo/dale.png" alt="ASA symbol" class="h-7 w-7 opacity-90">
+                </span>
+                <span class="flex flex-col text-left leading-tight">
+                  <span class="text-base text-zinc-50">@cruelbloomtattoo</span>
+                  <span class="text-[12px] text-zinc-400">(Dale Murray)</span>
+                </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Buttons -->
+        <div class="flex flex-wrap justify-center gap-3 pt-4">
+           <a href="https://share.google/s5hH7YX2zrZPiW8VM"
+             target="_blank" rel="noopener"
+             class="ink-button">
+            See us on Google
+          </a>
+          <a href="tel:+17166949185"
+             class="ink-button">
+            Call the Shop
+          </a>
+        </div>
+      </div>
+
+      <!-- Map -->
+      <div class="space-y-6">
+        <div class="rounded-2xl overflow-hidden border border-white/10">
+          <iframe
+            title="Satellite map"
+            class="w-full h-[340px] md:h-[420px]"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=American%20Skin%20Art%2044%20Webster%20St%20North%20Tonawanda%20NY&output=embed&t=k&z=17">
+          </iframe>
+        </div>
+        <div class="text-center">
+          <a
+            href="https://www.google.com/maps/place/American+Skin+Art/@41.1397139,-80.3893791,7z/data=!4m6!3m5!1s0x89d36e7eaaf5fd47:0x4e0f520abbe511cd!8m2!3d43.0231837!4d-78.8777916!16s%2Fg%2F125_zv0hp?entry=ttu&g_ep=EgoyMDI1MTEyMy4xIKXMDSoASAFQAw%3D%3D"
+            target="_blank" rel="noopener"
+            class="ink-button">
+            Get Directions
+          </a>
+        </div>
+
+        <div id="contact-email" class="rounded-2xl border border-white/10 bg-black/60 p-6" style="scroll-margin-top:6rem;">
+          <h3 class="text-center uppercase tracking-[0.4em] text-sm text-zinc-100 font-semibold">Send Us an Email</h3>
+          <p class="mt-3 text-sm text-zinc-300 text-center">Prefer email? Drop us a note below and we&rsquo;ll respond as soon as we can.</p>
+          <form id="contact-email-form" action="https://formspree.io/f/xzznvpll" method="POST" class="mt-6 space-y-4">
+            <div>
+              <label class="sr-only" for="contact-name">Your Name</label>
+              <input id="contact-name" name="name" type="text" required class="w-full rounded-2xl bg-black/40 border border-white/10 px-4 py-3 text-base" placeholder="Your Name">
+            </div>
+            <div>
+              <label class="sr-only" for="contact-email">Email</label>
+              <input id="contact-email" name="email" type="email" required class="w-full rounded-2xl bg-black/40 border border-white/10 px-4 py-3 text-base" placeholder="Email">
+            </div>
+            <div>
+              <label class="sr-only" for="contact-message">Message</label>
+              <textarea id="contact-message" name="message" rows="4" required class="w-full rounded-2xl bg-black/40 border border-white/10 px-4 py-3 text-base" placeholder="How can we help?"></textarea>
+            </div>
+            <button type="submit" id="contact-email-submit" class="ink-button w-full justify-center">Send Message</button>
+            <p id="contact-email-loading" class="text-center text-sm text-zinc-400 hidden">Sending your note&hellip;</p>
+            <p id="contact-email-success" class="text-center text-sm text-green-400 hidden" aria-live="polite">Thanks! Your message was sent.</p>
+            <p id="contact-email-error" class="text-center text-sm text-red-400 hidden" aria-live="assertive">Something went wrong. Please try again or email <a class="underline" href="mailto:admin@americanskinart.com">admin@americanskinart.com</a>.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- FOOTER -->
+<footer class="border-t border-white/10 bg-black/60 footer-compact">
+  <div class="mx-auto max-w-7xl px-4 pt-3 pb-2 sm:px-6 sm:pt-4 flex flex-col gap-1 text-center text-zinc-500">
+    <!-- address + copyright -->
+    <p class="text-[0.5rem] sm:text-[0.65rem] leading-relaxed">
+      <a
+        href="https://www.google.com/maps?ll=43.023184,-78.877792&z=16&t=m&hl=en-US&gl=US&mapclient=embed&cid=5624804665664541133"
+        target="_blank"
+        rel="noopener"
+        class="hover:text-white transition inline-block"
+      >
+        American&nbsp;Skin&nbsp;Art<br>
+        44 Webster St&nbsp;&middot;&nbsp;North&nbsp;Tonawanda,&nbsp;NY<br>
+        &copy; <span id="year"></span> American Skin Art. All rights reserved.<br>
+      </a>
+    </p>
+    <a href="https://instagram.com/ffogekaj" target="_blank" rel="noopener" class="inline-block text-[0.55rem] uppercase tracking-[0.25em] text-zinc-500 hover:text-white"> Site by doomsday
+    </a>
+  </div>
+</footer>
+
+
+  <script>
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const closeMenuButton = document.getElementById('close-mobile-menu');
+    const mobileMenuLinks = mobileMenu ? mobileMenu.querySelectorAll('a') : [];
+
+    function toggleMobileMenu() {
+      if (!mobileMenu) return;
+      mobileMenu.classList.toggle('hidden');
+      document.body.classList.toggle('overflow-hidden');
+    }
+
+    if (mobileMenuButton) mobileMenuButton.addEventListener('click', toggleMobileMenu);
+    if (closeMenuButton) closeMenuButton.addEventListener('click', toggleMobileMenu);
+    mobileMenuLinks.forEach(link => link.addEventListener('click', toggleMobileMenu));
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileMenu && !mobileMenu.classList.contains('hidden')) {
+        toggleMobileMenu();
+      }
+    });
+
+    const header = document.querySelector('header[role="banner"]');
+    const navBar = header ? header.querySelector('nav') : null;
+    const updateHeaderBackground = () => {
+      if (!header) return;
+      const isSolid = window.scrollY > 10;
+      header.classList.toggle('header-solid', isSolid);
+      if (navBar) navBar.classList.toggle('nav-solid', isSolid);
+    };
+    updateHeaderBackground();
+    window.addEventListener('scroll', updateHeaderBackground, { passive: true });
+
+    const contactForm = document.getElementById('contact-email-form');
+    const contactSubmit = document.getElementById('contact-email-submit');
+    const contactLoading = document.getElementById('contact-email-loading');
+    const contactSuccess = document.getElementById('contact-email-success');
+    const contactError = document.getElementById('contact-email-error');
+    if (contactForm && contactSubmit) {
+      contactForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        contactSubmit.disabled = true;
+        contactLoading?.classList.remove('hidden');
+        contactSuccess?.classList.add('hidden');
+        contactError?.classList.add('hidden');
+
+        try {
+          const formData = new FormData(contactForm);
+          const response = await fetch(contactForm.action, {
+            method: 'POST',
+            headers: { 'Accept': 'application/json' },
+            body: formData
+          });
+          contactLoading?.classList.add('hidden');
+          contactSubmit.disabled = false;
+          if (response.ok) {
+            contactForm.reset();
+            contactSuccess?.classList.remove('hidden');
+          } else {
+            contactError?.classList.remove('hidden');
+          }
+        } catch (error) {
+          contactLoading?.classList.add('hidden');
+          contactSubmit.disabled = false;
+          contactError?.classList.remove('hidden');
+        }
+      });
+    }
+  </script>
+
+  <!-- Floating Creator Badge (avatar above text) -->
+<div id="creator-badge" class="fixed bottom-4 right-4 z-50 flex flex-col items-center gap-1.5 bg-black/60 backdrop-blur rounded-2xl shadow-lg px-2.5 py-2.5">
+    <a href="https://instagram.com/ffogekaj" target="_blank" rel="noopener"
+       aria-label="Visit @ffogekaj on Instagram"
+       class="block rounded-full p-0.5 bg-black/60">
+      <img src="images/artists/creator-pfp.png" alt="" class="w-[48px] h-[48px] rounded-full block select-none" />
+    </a>
+    <p class="text-[0.6rem] text-zinc-300 m-0 whitespace-nowrap select-none text-center tracking-[0.2em] uppercase">
+      Site by doomsday
+    </p>
+  </div>
+</body>
+</html>

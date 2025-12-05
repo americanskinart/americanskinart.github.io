@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Page Not Found — American Skin Art</title>
+  <link rel="stylesheet" href="assets/css/main.css?v=asa-v1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Cormorant+Garamond:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .inter { font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+    body { background: #0b0b0b; color: #f4f4f4; margin: 0; }
+  </style>
+</head>
+<body class="not-found inter bg-[#0b0b0b] text-zinc-100 selection:bg-red-700/50 page-overlay min-h-screen flex flex-col">
+  <header class="fixed top-0 left-0 right-0 z-40 bg-gradient-to-b from-black/80 to-transparent transition-colors duration-300" role="banner">
+    <nav class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-20 md:h-24 flex items-center"
+         role="navigation" aria-label="Main navigation">
+
+      <!-- Mobile bar: centered ASA symbol that opens menu -->
+      <div class="flex w-full items-center justify-center sm:hidden">
+        <button id="mobile-menu-button" class="rounded-full p-2 hover:bg-white/10 flex items-center gap-3" aria-label="Toggle menu">
+          <img src="images/asa_symbol_white_transparent.png" alt="American Skin Art logo" class="h-12 object-contain drop-shadow" loading="eager" decoding="async" />
+        </button>
+      </div>
+
+      <!-- Desktop -->
+      <div class="hidden sm:grid w-full grid-cols-[1fr_auto_1fr] items-center">
+        <div></div>
+        <div class="flex items-center justify-center gap-12">
+          <a href="index.html#artists" class="text-sm tracking-[0.3em] uppercase text-zinc-300 hover:text-white/90 transition-colors">Artists</a>
+          <a href="shop.html" class="text-sm tracking-[0.3em] uppercase text-zinc-300 hover:text-white/90 transition-colors">Shop</a>
+          <a href="index.html#top" class="flex items-center justify-center" aria-label="Go to top">
+            <img src="images/asa_symbol_white_transparent.png" alt="American Skin Art" class="h-12 lg:h-14 object-contain" loading="eager" decoding="async" />
+          </a>
+          <a href="faq.html" class="text-sm tracking-[0.3em] uppercase text-zinc-300 hover:text-white/90 transition-colors">FAQ</a>
+          <a href="contact.html" class="text-sm tracking-[0.3em] uppercase text-zinc-300 hover:text-white/90 transition-colors">Contact</a>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="hidden fixed inset-0" style="z-index: 9999 !important; background-color: #000000 !important; background-image: none !important;">
+        <div class="flex flex-col items-center justify-center min-h-screen gap-8 text-lg" style="background-color: #000000 !important; width: 100%; height: 100%;">
+          <button id="close-mobile-menu" class="absolute top-4 right-4 p-2 hover:bg-white/10 rounded-full">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-6 h-6">
+              <path d="M6 18L18 6M6 6l12 12" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </button>
+          <a href="index.html#top" class="hover:opacity-80 transition-opacity" aria-label="Go to top">
+            <img src="images/asa_symbol_white_transparent.png" alt="American Skin Art" class="h-20 object-contain drop-shadow mb-4" loading="eager" decoding="async" />
+          </a>
+          <a href="index.html#portfolio" class="hover:text-white/90 text-zinc-300">Portfolio</a>
+          <a href="artists.html" class="hover:text-white/90 text-zinc-300">Artists</a>
+          <a href="shop.html" class="hover:text-white/90 text-zinc-300">Shop</a>
+          <a href="faq.html" class="hover:text-white/90 text-zinc-300">FAQ</a>
+          <a href="contact.html" class="hover:text-white/90 text-zinc-300">Contact</a>
+          <a href="index.html#book" class="mt-4 w-full ink-button justify-center">Book Now</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container pt-32 flex-1">
+    <h1>404</h1>
+    <p>That page seems to have vanished into the ink…</p>
+    <p><a class="btn ink-button" href="/">Back to home</a></p>
+  </main>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const mobileMenuButton = document.getElementById('mobile-menu-button');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const closeMobileMenu = document.getElementById('close-mobile-menu');
+
+      if (mobileMenuButton && mobileMenu && closeMobileMenu) {
+        mobileMenuButton.addEventListener('click', () => mobileMenu.classList.remove('hidden'));
+        closeMobileMenu.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+        mobileMenu.addEventListener('click', (event) => {
+          if (event.target === mobileMenu) {
+            mobileMenu.classList.add('hidden');
+          }
+        });
+      }
+
+      const header = document.querySelector('header[role="banner"]');
+      const navBar = header ? header.querySelector('nav') : null;
+      const updateHeaderBackground = () => {
+        if (!header) return;
+        const isSolid = window.scrollY > 10;
+        header.classList.toggle('header-solid', isSolid);
+        if (navBar) navBar.classList.toggle('nav-solid', isSolid);
+      };
+      updateHeaderBackground();
+      window.addEventListener('scroll', updateHeaderBackground, { passive: true });
+    });
+    
+  </script>
+  
+  <!-- FOOTER -->
+    <footer class="border-t border-white/10 bg-black/60">
+      <div class="mx-auto max-w-7xl px-6 pt-4 pb-8 flex flex-col gap-2 text-center text-zinc-500">
+        <div class="flex flex-wrap justify-center gap-3 text-[0.65rem] tracking-[0.35em] uppercase text-zinc-400">
+          <a href="artists.html" class="px-2 py-1 text-zinc-300 hover:text-white">Artists</a>
+          <a href="index.html#book" class="px-2 py-1 text-zinc-300 hover:text-white">Book</a>
+          <a href="shop.html" class="px-2 py-1 text-zinc-300 hover:text-white">Shop</a>
+          <a href="faq.html" class="px-2 py-1 text-zinc-300 hover:text-white">FAQ</a>
+          <a href="contact.html" class="px-2 py-1 text-zinc-300 hover:text-white">Contact</a>
+        </div>
+        <p class="text-[0.6rem] sm:text-[0.65rem]">
+          <a href="https://www.google.com/maps?ll=43.023184,-78.877792&z=16&t=m&hl=en-US&gl=US&mapclient=embed&cid=5624804665664541133" target="_blank" rel="noopener" class="hover:text-white transition whitespace-nowrap"> American&nbsp;Skin&nbsp;Art&nbsp;&middot;&nbsp;North&nbsp;Tonawanda,&nbsp;NY <br>
+            &copy; <span id="year"></span> American Skin Art. All rights reserved. <br>
+             <a href="https://instagram.com/ffogekaj" target="_blank" rel="noopener" class="inline-block text-[0.55rem] uppercase tracking-[0.25em] text-zinc-500 hover:text-white"> Site by doomsday
+          </a>
+    </footer>
+
+<!-- Floating Creator Badge (avatar above text) -->
+<div id="creator-badge" class="fixed bottom-4 right-4 z-50 flex flex-col items-center gap-1.5 bg-black/60 backdrop-blur rounded-2xl shadow-lg px-2.5 py-2.5">
+    <a href="https://instagram.com/ffogekaj" target="_blank" rel="noopener"
+       aria-label="Visit @ffogekaj on Instagram"
+       class="block rounded-full p-0.5 bg-black/60">
+      <img src="images/artists/creator-pfp.png" alt="" class="w-[48px] h-[48px] rounded-full block select-none" />
+    </a>
+    <p class="text-[0.6rem] text-zinc-300 m-0 whitespace-nowrap select-none text-center tracking-[0.2em] uppercase">
+      Site by doomsday
+    </p>
+  </div>
+  
+
+</body>
+</html>

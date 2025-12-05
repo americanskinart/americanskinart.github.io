@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FAQs — American Skin Art</title>
+  <meta name="description" content="Frequently asked questions about booking, pricing, aftercare, and studio policies at American Skin Art." />
+  <meta name="theme-color" content="#0b0b0b" />
+  <meta property="og:title" content="FAQs — American Skin Art" />
+  <meta property="og:description" content="Booking, pricing, aftercare, and policies." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Fonts to match main site -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Cormorant+Garamond:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/css/styles.css">
+
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+  <style>
+    html {
+      color-scheme: dark;
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background:#0b0b0b;
+      color:#e5e7eb;
+    }
+    .display {
+      font-family: 'Cormorant Garamond', serif;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+    details > summary { list-style:none; }
+    details > summary::-webkit-details-marker { display:none; }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col bg-[#0b0b0b] text-zinc-100 page-overlay">
+  <!-- Header -->
+  <header class="fixed top-0 left-0 right-0 z-40 bg-gradient-to-b from-black/80 to-transparent transition-colors duration-300" role="banner">
+    <nav class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-20 md:h-24 flex items-center"
+         role="navigation" aria-label="Main navigation">
+
+      <!-- Mobile bar: centered ASA symbol that opens menu -->
+      <div class="flex w-full items-center justify-center sm:hidden">
+        <button id="mobile-menu-button" class="rounded-full p-2 hover:bg-white/10 flex items-center gap-3" aria-label="Toggle menu">
+          <img
+            src="images/asa_symbol_white_transparent.png"
+            alt="American Skin Art logo"
+            class="h-12 object-contain drop-shadow"
+            loading="eager"
+            decoding="async"
+          />
+        </button>
+      </div>
+
+      <!-- Desktop bar: centered nav row + IG on right -->
+      <div class="hidden sm:grid w-full grid-cols-[1fr_auto_1fr] items-center">
+        <div></div>
+
+        <!-- centered nav row -->
+        <div class="flex items-center justify-center gap-12">
+          <a href="artists.html"
+             class="text-sm tracking-[0.3em] uppercase text-zinc-300 hover:text-white/90 transition-colors">
+            Artists
+          </a>
+          <a href="shop.html"
+             class="text-sm tracking-[0.3em] uppercase text-zinc-300 hover:text-white/90 transition-colors">
+            Shop
+          </a>
+          <a href="index.html#top"
+             class="flex items-center justify-center"
+             aria-label="Go to top">
+            <img
+              src="images/asa_symbol_white_transparent.png"
+              alt="American Skin Art"
+              class="h-12 lg:h-14 object-contain"
+              loading="eager"
+              decoding="async"
+            />
+          </a>
+          <a href="faq.html"
+             class="text-sm tracking-[0.3em] uppercase text-zinc-300 hover:text-white/90 transition-colors">
+            FAQ
+          </a>
+          <a href="contact.html"
+             class="text-sm tracking-[0.3em] uppercase text-zinc-300 hover:text-white/90 transition-colors">
+            Contact
+          </a>
+        </div>
+        <div></div>
+      </div>
+
+      <!-- Mobile Menu overlay -->
+      <div id="mobile-menu" class="hidden fixed inset-0" style="z-index: 9999 !important; background-color: #000000 !important; background-image: none !important;">
+        <div class="flex flex-col items-center justify-center min-h-screen gap-8 text-lg" style="background-color: #000000 !important; width: 100%; height: 100%;">
+          <button id="close-mobile-menu" class="absolute top-4 right-4 p-2 hover:bg-white/10 rounded-full">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-6 h-6">
+              <path d="M6 18L18 6M6 6l12 12" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </button>
+          <a href="index.html#top" class="hover:opacity-80 transition-opacity" aria-label="Go to top">
+            <img
+              src="images/asa_symbol_white_transparent.png"
+              alt="American Skin Art"
+              class="h-20 object-contain drop-shadow mb-4"
+              loading="eager"
+              decoding="async"
+            />
+          </a>
+          <a href="index.html#portfolio" class="hover:text-white/90 text-zinc-300">Portfolio</a>
+          <a href="artists.html" class="hover:text-white/90 text-zinc-300">Artists</a>
+          <a href="shop.html" class="hover:text-white/90 text-zinc-300">Shop</a>
+          <a href="faq.html" class="hover:text-white/90 text-zinc-300">FAQ</a>
+          <a href="contact.html" class="hover:text-white/90 text-zinc-300">Contact</a>
+          <a href="index.html#book" class="mt-4 w-full ink-button justify-center">Book Now</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main -->
+  <main class="flex-1 pt-32 pb-12">
+    <section class="mx-auto max-w-4xl px-6 py-16 bg-black text-zinc-200 rounded-3xl border border-white/10 shadow-2xl">
+      <div class="text-center max-w-2xl mx-auto">
+        <h1 class="display text-4xl">Frequently Asked Questions</h1>
+        <p class="mt-3 text-zinc-400">
+          Answers about booking, pricing, prep, aftercare, and studio policies.
+          For anything not covered here, <a href="contact.html#contact-email" class="underline hover:text-zinc-100">send us a message</a>.
+        </p>
+      </div>
+
+      <!-- Booking & Pricing -->
+      <div class="mt-12">
+        <h2 class="text-xl font-semibold tracking-wide display">Booking &amp; Pricing</h2>
+        <div class="mt-4 grid gap-3">
+          <details class="group rounded-xl border border-white/10 bg-black p-4 transition">
+            <summary class="cursor-pointer flex items-center justify-between gap-4">
+              <span class="font-medium">How do I book?</span>
+              <span class="text-zinc-400 group-open:rotate-180 transition">⌃</span>
+            </summary>
+            <div class="mt-3 text-zinc-300">
+              Use the “Book a Consult” form or DM the artist on Instagram.
+              We’ll confirm availability and next steps.
+            </div>
+          </details>
+
+          <details class="group rounded-xl border border-white/10 bg-black p-4 transition">
+            <summary class="cursor-pointer flex items-center justify-between gap-4">
+              <span class="font-medium">Do you require a deposit?</span>
+              <span class="text-zinc-400 group-open:rotate-180 transition">⌃</span>
+            </summary>
+            <div class="mt-3 text-zinc-300">
+              Yes. Deposits (non-refundable) hold your spot and go toward the final price.
+            </div>
+          </details>
+
+          <details class="group rounded-xl border border-white/10 bg-black p-4 transition">
+            <summary class="cursor-pointer flex items-center justify-between gap-4">
+              <span class="font-medium">How much does a tattoo cost?</span>
+              <span class="text-zinc-400 group-open:rotate-180 transition">⌃</span>
+            </summary>
+            <div class="mt-3 text-zinc-300">
+              Pricing depends on size, placement, and detail.
+              Small/minimum pieces start at $100; hourly rates and day rates available.
+              Contact us for accurate pricing.
+            </div>
+          </details>
+
+          <details class="group rounded-xl border border-white/10 bg-black p-4 transition">
+            <summary class="cursor-pointer flex items-center justify-between gap-4">
+              <span class="font-medium">Can I get a quote online?</span>
+              <span class="text-zinc-400 group-open:rotate-180 transition">⌃</span>
+            </summary>
+            <div class="mt-3 text-zinc-300">
+              Rough estimates are possible with clear references, size (in inches), and placement.
+              Final price is confirmed in person.
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- Design & Preparation -->
+      <div class="mt-10">
+        <h2 class="text-xl font-semibold tracking-wide display">Design &amp; Preparation</h2>
+        <div class="mt-4 grid gap-3">
+          <details class="group rounded-xl border border-white/10 bg-black p-4 transition">
+            <summary class="cursor-pointer flex items-center justify-between gap-4">
+              <span class="font-medium">Can you design something custom for me?</span>
+              <span class="text-zinc-400 group-open:rotate-180 transition">⌃</span>
+            </summary>
+            <div class="mt-3 text-zinc-300">
+              Absolutely. Bring ideas/references; we’ll create a piece tailored to you.
+            </div>
+          </details>
+
+          <details class="group rounded-xl border border-white/10 bg-black p-4 transition">
+            <summary class="cursor-pointer flex items-center justify-between gap-4">
+              <span class="font-medium">Will you copy another artist’s design?</span>
+              <span class="text-zinc-400 group-open:rotate-180 transition">⌃</span>
+            </summary>
+            <div class="mt-3 text-zinc-300">
+              No exact copies. We’ll draw an original inspired by what you like.
+            </div>
+          </details>
+
+          <details class="group rounded-xl border border-white/10 bg-black p-4 transition">
+            <summary class="cursor-pointer flex items-center justify-between gap-4">
+              <span class="font-medium">Do you do cover-ups or reworks?</span>
+              <span class="text-zinc-400 group-open:rotate-180 transition">⌃</span>
+            </summary>
+            <div class="mt-3 text-zinc-300">
+              Yes—after a consult. High-contrast, larger designs work best for cover-ups;
+              sometimes lightening/laser helps.
+            </div>
+          </details>
+
+          <details class="group rounded-xl border border-white/10 bg-black p-4 transition">
+            <summary class="cursor-pointer flex items-center justify-between gap-4">
+              <span class="font-medium">Can you tattoo over scars or stretch marks?</span>
+              <span class="text-zinc-400 group-open:rotate-180 transition">⌃</span>
+            </summary>
+            <div class="mt-3 text-zinc-300">
+              Often, yes—once fully healed (typically 1+ year). A consult is required.
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- Health & Safety -->
+      <div class="mt-10">
+        <h2 class="text-xl font-semibold tracking-wide display">Health &amp; Safety</h2>
+        <div class="mt-4 grid gap-3">
+          <details class="group rounded-xl border border-white/10 bg-black p-4 transition">
+            <summary class="cursor-pointer flex items-center justify-between gap-4">
+              <span class="font-medium">How old do I need to be?</span>
+              <span class="text-zinc-400 group-open:rotate-180 transition">⌃</span>
+            </summary>
+            <div class="mt-3 text-zinc-300">
+              18+ with valid, government-issued photo ID. (Adjust this if your policy differs.)
+            </div>
+          </details>
+
+          <details class="group rounded-xl border border-white/10 bg-black p-4 transition">
+            <summary class="cursor-pointer flex items-center justify-between gap-4">
+              <span class="font-medium">Is your shop sterile and safe?</span>
+              <span class="text-zinc-400 group-open:rotate-180 transition">⌃</span>
+            </summary>
+            <div class="mt-3 text-zinc-300">
+              Yes. Single-use needles, hospital-grade disinfection, and state-compliant procedures.
+            </div>
+          </details>
+
+          <details class="group rounded-xl border border-white/10 bg-black p-4 transition">
+            <summary class="cursor-pointer flex items-center justify-between gap-4">
+              <span class="font-medium">I have a medical condition—can I get tattooed?</span>
+              <span class="text-zinc-400 group-open:rotate-180 transition">⌃</span>
+            </summary>
+            <div class="mt-3 text-zinc-300">
+              Please disclose conditions/medications. Get doctor approval if unsure.
+            </div>
+          </details>
+
+          <details class="group rounded-xl border border-white/10 bg-black p-4 transition">
+            <summary class="cursor-pointer flex items-center justify-between gap-4">
+              <span class="font-medium">Are your inks vegan?</span>
+              <span class="text-zinc-400 group-open:rotate-180 transition">⌃</span>
+            </summary>
+            <div class="mt-3 text-zinc-300">
+              We use high-quality, professional-grade inks. Let us know about any allergies or sensitivities.
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- Aftercare & Healing -->
+      <div class="mt-10">
+        <h2 class="text-xl font-semibold tracking-wide display">Aftercare &amp; Healing</h2>
+        <div class="mt-4 grid gap-3">
+          <details class="group rounded-xl border border-white/10 bg-black p-4 transition">
+            <summary class="cursor-pointer flex items-center justify-between gap-4">
+              <span class="font-medium">How do I take care of my tattoo?</span>
+              <span class="text-zinc-400 group-open:rotate-180 transition">⌃</span>
+            </summary>
+            <div class="mt-3 text-zinc-300">
+              We’ll provide written aftercare. Typically: remove wrap as directed, wash gently,
+              pat dry, and apply a thin, fragrance-free moisturizer.
+            </div>
+          </details>
+
+          <details class="group rounded-xl border border-white/10 bg-black p-4 transition">
+            <summary class="cursor-pointer flex items-center justify-between gap-4">
+              <span class="font-medium">How long does healing take?</span>
+              <span class="text-zinc-400 group-open:rotate-180 transition">⌃</span>
+            </summary>
+            <div class="mt-3 text-zinc-300">
+              Surface heals in ~2 weeks; full healing is ~6–8 weeks.
+            </div>
+          </details>
+
+          <details class="group rounded-xl border border-white/10 bg-black p-4 transition">
+            <summary class="cursor-pointer flex items-center justify-between gap-4">
+              <span class="font-medium">When can I swim, tan, or work out?</span>
+              <span class="text-zinc-400 group-open:rotate-180 transition">⌃</span>
+            </summary>
+            <div class="mt-3 text-zinc-300">
+              No swimming, hot tubs, or saunas for 2–3 weeks.
+              Avoid sun exposure while healing.
+            </div>
+          </details>
+
+          <details class="group rounded-xl border border-white/10 bg-black p-4 transition">
+            <summary class="cursor-pointer flex items-center justify-between gap-4">
+              <span class="font-medium">Do you offer touch-ups?</span>
+              <span class="text-zinc-400 group-open:rotate-180 transition">⌃</span>
+            </summary>
+            <div class="mt-3 text-zinc-300">
+              Yes. One complimentary touch-up within 6-12 months for normal healing
+              (excludes hands/feet/finger tips and neglect).
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="mt-12 border-t border-white/10 pt-8 flex flex-col gap-4 items-start">
+        <a href="index.html#book" class="ink-button">Book a Consult</a> <br>
+        <h3 class="text-lg font-semibold text-zinc-100">Didn’t find what you need?</h3>
+        <a href="contact.html" class="ink-button">Contact Us</a>
+      </div>
+    </section>
+  </main>
+
+ <!-- FOOTER -->
+<footer class="border-t border-white/10 bg-black/60 footer-compact">
+  <div class="mx-auto max-w-7xl px-4 pt-3 pb-2 sm:px-6 sm:pt-4 flex flex-col gap-1 text-center text-zinc-500">
+    <!-- address + copyright -->
+    <p class="text-[0.5rem] sm:text-[0.65rem] leading-relaxed">
+      <a
+        href="https://www.google.com/maps?ll=43.023184,-78.877792&z=16&t=m&hl=en-US&gl=US&mapclient=embed&cid=5624804665664541133"
+        target="_blank"
+        rel="noopener"
+        class="hover:text-white transition inline-block"
+      >
+        American&nbsp;Skin&nbsp;Art<br>
+        44 Webster St&nbsp;&middot;&nbsp;North&nbsp;Tonawanda,&nbsp;NY<br>
+        &copy; <span id="year"></span> American Skin Art. All rights reserved.<br>
+      </a>
+    </p>
+    <a href="https://instagram.com/ffogekaj" target="_blank" rel="noopener" class="inline-block text-[0.55rem] uppercase tracking-[0.25em] text-zinc-500 hover:text-white"> Site by doomsday
+    </a>
+  </div>
+</footer>
+
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile menu JS
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const closeMenuButton = document.getElementById('close-mobile-menu');
+
+    function toggleMobileMenu() {
+      if (!mobileMenu) return;
+      mobileMenu.classList.toggle('hidden');
+      document.body.classList.toggle('overflow-hidden');
+    }
+
+    if (mobileMenuButton && closeMenuButton && mobileMenu) {
+      mobileMenuButton.addEventListener('click', toggleMobileMenu);
+      closeMenuButton.addEventListener('click', toggleMobileMenu);
+      mobileMenu.querySelectorAll('a').forEach(link =>
+        link.addEventListener('click', toggleMobileMenu)
+      );
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+          toggleMobileMenu();
+        }
+      });
+    }
+
+    const header = document.querySelector('header[role="banner"]');
+    const navBar = header ? header.querySelector('nav') : null;
+    const updateHeaderBackground = () => {
+      if (!header) return;
+      const isSolid = window.scrollY > 10;
+      header.classList.toggle('header-solid', isSolid);
+      if (navBar) navBar.classList.toggle('nav-solid', isSolid);
+    };
+    updateHeaderBackground();
+    window.addEventListener('scroll', updateHeaderBackground, { passive: true });
+  </script>
+  <!-- Floating Creator Badge (avatar above text) -->
+<div id="creator-badge" class="fixed bottom-4 right-4 z-50 flex flex-col items-center gap-1.5 bg-black/60 backdrop-blur rounded-2xl shadow-lg px-2.5 py-2.5">
+    <a href="https://instagram.com/ffogekaj" target="_blank" rel="noopener"
+       aria-label="Visit @ffogekaj on Instagram"
+       class="block rounded-full p-0.5 bg-black/60">
+      <img src="images/artists/creator-pfp.png" alt="" class="w-[48px] h-[48px] rounded-full block select-none" />
+    </a>
+    <p class="text-[0.6rem] text-zinc-300 m-0 whitespace-nowrap select-none text-center tracking-[0.2em] uppercase">
+      Site by doomsday
+    </p>
+  </div>
+</body>
+</html>
