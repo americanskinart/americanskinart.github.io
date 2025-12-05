@@ -646,6 +646,19 @@
     };
     updateHeaderBackground();
     window.addEventListener('scroll', updateHeaderBackground, { passive: true });
+
+    // Handle cross-page anchor navigation (e.g., from artist pages to #book)
+    window.addEventListener('load', () => {
+      const hash = window.location.hash;
+      if (hash) {
+        setTimeout(() => {
+          const target = document.querySelector(hash);
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }, 100);
+      }
+    });
   </script>
 
   <!-- Floating Creator Badge (avatar above text) -->
