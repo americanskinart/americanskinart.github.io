@@ -97,7 +97,7 @@
 
   <!-- Shop Info / Contact / Map -->
   <section id="shop" class="bg-black/40 border-y border-white/10">
-    <div class="mx-auto max-w-4xl px-6 pt-32 pb-20 space-y-10">
+    <div class="mx-auto max-w-6xl px-6 pt-32 pb-20 space-y-10">
       <!-- Contact block -->
       <div id="contact" class="space-y-6 text-center">
         <div class="space-y-3">
@@ -109,27 +109,89 @@
           </p>
         </div>
 
-        <div class="text-base text-zinc-300 space-y-1">
-          <p>
-            <span class="font-semibold">Call: </span>
-            <a class="underline" href="tel:+17166949185">(716) 694-9185</a>
-          </p>
-          <p>
-            <span class="font-semibold">Email: </span>
-            <a class="underline" href="mailto:admin@americanskinart.com">admin@americanskinart.com</a>
-          </p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 text-sm text-zinc-300">
+          <a href="tel:+17166949185" class="flex items-center gap-2 hover:text-white transition-colors">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+            </svg>
+            <span>(716) 694-9185</span>
+          </a>
+
+          <span class="hidden sm:inline text-zinc-600">•</span>
+
+          <div class="flex items-center gap-2">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            <span>Tue–Sat: 12pm – 8pm</span>
+          </div>
+
+          <span class="hidden sm:inline text-zinc-600">•</span>
+
+          <a href="mailto:admin@americanskinart.com" class="flex items-center gap-2 hover:text-white transition-colors">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+            <span>admin@americanskinart.com</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Two-column layout on desktop: Email form on left, Map on right -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:items-start">
+        <!-- Email Form (left on desktop) -->
+        <div id="contact-email" class="rounded-2xl border border-white/10 bg-black/60 p-8 lg:aspect-square flex flex-col" style="scroll-margin-top:6rem;">
+          <h3 class="text-center uppercase tracking-[0.4em] text-sm text-zinc-100 font-semibold">Send Us an Email</h3>
+          <p class="mt-3 text-sm text-zinc-300 text-center">Prefer email? Drop us a note below and we&rsquo;ll respond as soon as we can.</p>
+          <form id="contact-email-form" action="https://formspree.io/f/xzznvpll" method="POST" class="mt-6 space-y-4 flex-1 flex flex-col">
+            <div>
+              <label class="sr-only" for="contact-name">Your Name</label>
+              <input id="contact-name" name="name" type="text" required class="w-full rounded-2xl bg-black/40 border border-white/10 px-4 py-3 text-base" placeholder="Your Name">
+            </div>
+            <div>
+              <label class="sr-only" for="contact-email">Email</label>
+              <input id="contact-email" name="email" type="email" required class="w-full rounded-2xl bg-black/40 border border-white/10 px-4 py-3 text-base" placeholder="Email">
+            </div>
+            <div class="flex-1">
+              <label class="sr-only" for="contact-message">Message</label>
+              <textarea id="contact-message" name="message" required class="w-full h-full rounded-2xl bg-black/40 border border-white/10 px-4 py-3 text-base resize-none" placeholder="How can we help?"></textarea>
+            </div>
+            <button type="submit" id="contact-email-submit" class="ink-button w-full justify-center">Send Message</button>
+            <p id="contact-email-loading" class="text-center text-sm text-zinc-400 hidden">Sending your note&hellip;</p>
+            <p id="contact-email-success" class="text-center text-sm text-green-400 hidden" aria-live="polite">Thanks! Your message was sent.</p>
+            <p id="contact-email-error" class="text-center text-sm text-red-400 hidden" aria-live="assertive">Something went wrong. Please try again or email <a class="underline" href="mailto:admin@americanskinart.com">admin@americanskinart.com</a>.</p>
+          </form>
         </div>
 
-        <div class="text-base text-zinc-300">
-          <p class="font-semibold">Hours</p>
-          <p>Tue–Sat: 12pm – 8pm</p>
-          <p>Sun–Mon: Closed</p>
+        <!-- Map & Buttons (right on desktop) -->
+        <div class="space-y-6">
+          <div class="rounded-2xl overflow-hidden border border-white/10 lg:aspect-square">
+            <iframe
+              title="Satellite map"
+              class="w-full h-[340px] lg:h-full"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps?q=American%20Skin%20Art%2044%20Webster%20St%20North%20Tonawanda%20NY&output=embed&t=k&z=17">
+            </iframe>
+          </div>
+          <div class="flex flex-wrap justify-center gap-3">
+            <a href="https://www.google.com/maps/place/American+Skin+Art/@41.1397139,-80.3893791,7z/data=!4m6!3m5!1s0x89d36e7eaaf5fd47:0x4e0f520abbe511cd!8m2!3d43.0231837!4d-78.8777916!16s%2Fg%2F125_zv0hp?entry=ttu&g_ep=EgoyMDI1MTEyMy4xIKXMDSoASAFQAw%3D%3D"
+               target="_blank" rel="noopener"
+               class="ink-button">
+              Get Directions
+            </a>
+            <a href="https://share.google/s5hH7YX2zrZPiW8VM"
+               target="_blank" rel="noopener"
+               class="ink-button">
+              See us on Google
+            </a>
+          </div>
         </div>
+      </div>
 
-        <!-- Instagram under contact info -->
-        <div class="pt-4 border-t border-white/10">
-          </h3>
-          <ul class="mt-3 grid grid-cols-1 md:grid-cols-2 gap-5 text-xs text-zinc-400 max-w-3xl mx-auto">
+      <!-- Social Links Section -->
+      <div class="pt-4 border-t border-white/10">
+        <ul class="mt-3 grid grid-cols-1 md:grid-cols-2 gap-5 text-xs text-zinc-400 max-w-3xl mx-auto">
             <li class="flex justify-center">
               <a href="https://instagram.com/americanskinart" target="_blank" rel="noopener"
                  class="inline-flex items-center gap-4 hover:text-white w-full max-w-[280px]">
@@ -181,63 +243,6 @@
           </ul>
         </div>
 
-        <!-- Buttons -->
-        <div class="flex flex-wrap justify-center gap-3 pt-4">
-           <a href="https://share.google/s5hH7YX2zrZPiW8VM"
-             target="_blank" rel="noopener"
-             class="ink-button">
-            See us on Google
-          </a>
-          <a href="tel:+17166949185"
-             class="ink-button">
-            Call the Shop
-          </a>
-        </div>
-      </div>
-
-      <!-- Map -->
-      <div class="space-y-6">
-        <div class="rounded-2xl overflow-hidden border border-white/10">
-          <iframe
-            title="Satellite map"
-            class="w-full h-[340px] md:h-[420px]"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            src="https://www.google.com/maps?q=American%20Skin%20Art%2044%20Webster%20St%20North%20Tonawanda%20NY&output=embed&t=k&z=17">
-          </iframe>
-        </div>
-        <div class="text-center">
-          <a
-            href="https://www.google.com/maps/place/American+Skin+Art/@41.1397139,-80.3893791,7z/data=!4m6!3m5!1s0x89d36e7eaaf5fd47:0x4e0f520abbe511cd!8m2!3d43.0231837!4d-78.8777916!16s%2Fg%2F125_zv0hp?entry=ttu&g_ep=EgoyMDI1MTEyMy4xIKXMDSoASAFQAw%3D%3D"
-            target="_blank" rel="noopener"
-            class="ink-button">
-            Get Directions
-          </a>
-        </div>
-
-        <div id="contact-email" class="rounded-2xl border border-white/10 bg-black/60 p-6" style="scroll-margin-top:6rem;">
-          <h3 class="text-center uppercase tracking-[0.4em] text-sm text-zinc-100 font-semibold">Send Us an Email</h3>
-          <p class="mt-3 text-sm text-zinc-300 text-center">Prefer email? Drop us a note below and we&rsquo;ll respond as soon as we can.</p>
-          <form id="contact-email-form" action="https://formspree.io/f/xzznvpll" method="POST" class="mt-6 space-y-4">
-            <div>
-              <label class="sr-only" for="contact-name">Your Name</label>
-              <input id="contact-name" name="name" type="text" required class="w-full rounded-2xl bg-black/40 border border-white/10 px-4 py-3 text-base" placeholder="Your Name">
-            </div>
-            <div>
-              <label class="sr-only" for="contact-email">Email</label>
-              <input id="contact-email" name="email" type="email" required class="w-full rounded-2xl bg-black/40 border border-white/10 px-4 py-3 text-base" placeholder="Email">
-            </div>
-            <div>
-              <label class="sr-only" for="contact-message">Message</label>
-              <textarea id="contact-message" name="message" rows="4" required class="w-full rounded-2xl bg-black/40 border border-white/10 px-4 py-3 text-base" placeholder="How can we help?"></textarea>
-            </div>
-            <button type="submit" id="contact-email-submit" class="ink-button w-full justify-center">Send Message</button>
-            <p id="contact-email-loading" class="text-center text-sm text-zinc-400 hidden">Sending your note&hellip;</p>
-            <p id="contact-email-success" class="text-center text-sm text-green-400 hidden" aria-live="polite">Thanks! Your message was sent.</p>
-            <p id="contact-email-error" class="text-center text-sm text-red-400 hidden" aria-live="assertive">Something went wrong. Please try again or email <a class="underline" href="mailto:admin@americanskinart.com">admin@americanskinart.com</a>.</p>
-          </form>
-        </div>
-      </div>
     </div>
   </section>
 
