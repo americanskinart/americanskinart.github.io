@@ -14,9 +14,10 @@
   <header class="fixed top-0 left-0 right-0 z-40 bg-gradient-to-b from-black/80 to-transparent transition-colors duration-300" role="banner">
     <nav class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-20 md:h-24 flex items-center"
          role="navigation" aria-label="Main navigation">
-      <!-- Mobile bar: centered ASA symbol that opens menu -->
-      <div class="flex w-full items-center justify-center sm:hidden">
-        <button id="mobile-menu-button" class="rounded-full p-2 hover:bg-white/10 flex items-center gap-3" aria-label="Toggle menu">
+      <!-- Mobile bar: clickable centered logo + burger button on right -->
+      <div class="flex w-full items-center justify-center relative sm:hidden">
+        <!-- Clickable Centered Logo -->
+        <a href="index.html#top" class="flex items-center" aria-label="Go to top">
           <img
             src="images/asa_symbol_white_transparent.png"
             alt="American Skin Art logo"
@@ -24,6 +25,13 @@
             loading="eager"
             decoding="async"
           />
+        </a>
+
+        <!-- Burger Menu Button (Positioned Absolute Right) -->
+        <button id="mobile-menu-button" class="absolute right-0 p-2 transition-opacity hover:opacity-70" aria-label="Toggle menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="text-zinc-600">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
         </button>
       </div>
       <!-- Desktop bar: centered nav row + IG on right -->
@@ -44,7 +52,7 @@
             <img
               src="images/asa_symbol_white_transparent.png"
               alt="American Skin Art"
-              class="h-12 lg:h-14 object-contain"
+              class="h-12 object-contain"
               loading="eager"
               decoding="async"
             />
