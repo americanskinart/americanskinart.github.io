@@ -86,6 +86,10 @@
         '  <button class="nav prev" aria-label="Previous slide" type="button">&#10094;</button>',
         '  <button class="nav next" aria-label="Next slide" type="button">&#10095;</button>',
         '  <div class="dots" role="tablist" aria-label="Slides"></div>',
+        '</div>',
+        '<div class="slider-lightbox hidden fixed inset-0 bg-black/95 backdrop-blur z-50 flex items-center justify-center p-4" style="cursor: pointer;">',
+        '  <img class="max-h-[90vh] max-w-[90vw] rounded-xl border border-white/10" alt="" style="cursor: pointer;" />',
+        '  <a class="absolute top-6 right-6 ink-button text-sm" style="cursor: pointer; pointer-events: auto;">View Artist Page</a>',
         '</div>'
       ].join('');
 
@@ -94,10 +98,58 @@
         track: mount.querySelector('.slides'),
         prev:  mount.querySelector('.prev'),
         next:  mount.querySelector('.next'),
-        dots:  mount.querySelector('.dots')
+        dots:  mount.querySelector('.dots'),
+        lightbox: mount.querySelector('.slider-lightbox'),
+        lightboxImg: mount.querySelector('.slider-lightbox img'),
+        lightboxLink: mount.querySelector('.slider-lightbox a')
       };
 
       let slides = [], idx = 0, timer = null, hovering = false, touching = false, touchStartX = 0, touchStartY = 0, touchStartTime = 0;
+
+      // Lightbox functions
+      function openLightbox(src, alt, artistPage) {
+        el.lightboxImg.src = src;
+        el.lightboxImg.alt = alt;
+
+        if (artistPage && artistPage !== '#') {
+          el.lightboxLink.href = artistPage;
+          el.lightboxLink.style.display = 'block';
+        } else {
+          el.lightboxLink.style.display = 'none';
+        }
+
+        el.lightbox.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeLightbox() {
+        el.lightbox.classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+
+      // Lightbox event handlers
+      el.lightbox.addEventListener('click', (e) => {
+        // Close when clicking the background (not the image or link)
+        if (e.target === el.lightbox) {
+          closeLightbox();
+        }
+      });
+
+      el.lightboxImg.addEventListener('click', (e) => {
+        e.stopPropagation();
+        closeLightbox();
+      });
+
+      el.lightboxLink.addEventListener('click', (e) => {
+        e.stopPropagation(); // Don't close lightbox when clicking the link
+      });
+
+      // Close on Escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !el.lightbox.classList.contains('hidden')) {
+          closeLightbox();
+        }
+      });
 
       function render(items){
         el.track.innerHTML = '';
@@ -110,23 +162,22 @@
           li.setAttribute('aria-roledescription','slide');
           li.setAttribute('aria-label', (i+1) + ' of ' + items.length);
 
-          const a = document.createElement('a');
           const meta = getArtistMeta(it);
           const href = meta.page || it.href || '#';
-          a.href = href;
-          if (meta.page || href === '#') {
-            a.removeAttribute('target');
-            a.removeAttribute('rel');
-          } else {
-            a.target = '_blank';
-            a.rel = 'noopener';
-          }
 
           const img = document.createElement('img');
           img.decoding = 'async';
           img.loading = 'lazy';
           img.src = it.src;
           img.alt = it.alt || '';
+          img.style.cursor = 'pointer';
+
+          // Click handler to open lightbox
+          img.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            openLightbox(it.src, it.alt || '', href);
+          });
 
           const cap = document.createElement('figcaption');
           cap.className = 'caption';
@@ -134,8 +185,7 @@
           cap.textContent = handle;
           if (!handle) cap.classList.add('hidden');
 
-          a.appendChild(img);
-          li.appendChild(a);
+          li.appendChild(img);
           li.appendChild(cap);
           el.track.appendChild(li);
 
