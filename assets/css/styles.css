@@ -32,17 +32,24 @@ body::after {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  right: 0;
+  bottom: 0;
   background-image:
     radial-gradient(circle at top, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.9)),
     url('../../images/devin-back.png');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
   z-index: -2;
-  will-change: auto;
+  pointer-events: none;
+}
+
+/* Mobile-specific: lock background to initial viewport height */
+@media (max-width: 640px) {
+  body::after {
+    height: 100svh;
+    min-height: 100vh;
+  }
 }
 .page-overlay footer,
 footer {
