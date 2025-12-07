@@ -1,6 +1,19 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <script>
+    // On reload, if a hash is present, redirect to index.html (removes hash and query) for true top refresh
+    document.addEventListener('DOMContentLoaded', function() {
+      const nav = performance.getEntriesByType('navigation')[0];
+      if (nav?.type === 'reload') {
+        if (window.location.hash || window.location.search) {
+          window.location.replace('index.html');
+        } else {
+          window.scrollTo(0, 0);
+        }
+      }
+    });
+  </script>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
