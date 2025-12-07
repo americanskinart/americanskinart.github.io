@@ -472,6 +472,7 @@
       <div class="lg:order-2">
         <div class="bg-black/40 rounded-2xl border border-white/10 p-6 lg:mt-8 h-full flex flex-col">
         <form id="booking-form" action="https://formspree.io/f/mvgerjvo" method="POST" class="grid grid-cols-1 gap-4 flex-1" aria-labelledby="booking-form">
+          <input type="hidden" id="artist-prefill" name="artist-prefill" value="">
           <div class="grid sm:grid-cols-2 gap-4">
             <div>
               <label for="name" class="sr-only">Your Name</label>
@@ -727,6 +728,16 @@
           closeArtistOverlay();
         }
       });
+      // Prefill artist from URL if present
+      const urlParams = new URLSearchParams(window.location.search);
+      const artistPrefill = urlParams.get('artist');
+      if (artistPrefill && artistSelect) {
+        artistSelect.value = artistPrefill;
+        // Also update the mobile label if present
+        if (artistLabel) {
+          artistLabel.textContent = artistPrefill;
+        }
+      }
     });
   </script>
 
