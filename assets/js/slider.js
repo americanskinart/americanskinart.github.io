@@ -208,6 +208,31 @@
         }
       });
 
+      // Touch/swipe support for lightbox
+      let lightboxTouchStartX = 0;
+      let lightboxTouchStartY = 0;
+      el.lightbox.addEventListener('touchstart', (e) => {
+        lightboxTouchStartX = e.touches[0].clientX;
+        lightboxTouchStartY = e.touches[0].clientY;
+      }, { passive: true });
+
+      el.lightbox.addEventListener('touchend', (e) => {
+        if (el.lightbox.classList.contains('hidden')) return;
+        const touchEndX = e.changedTouches[0].clientX;
+        const touchEndY = e.changedTouches[0].clientY;
+        const dx = touchEndX - lightboxTouchStartX;
+        const dy = touchEndY - lightboxTouchStartY;
+
+        // Only handle horizontal swipes
+        if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 50) {
+          if (dx > 0) {
+            prevLightboxImage(); // Swipe right -> previous
+          } else {
+            nextLightboxImage(); // Swipe left -> next
+          }
+        }
+      }, { passive: true });
+
       function render(items){
         el.track.innerHTML = '';
         el.dots.innerHTML = '';
