@@ -21,15 +21,54 @@
     document.addEventListener('DOMContentLoaded', () => {
       const overlay = document.getElementById('lightbox');
       if (!overlay) return;
-      document.querySelectorAll('[data-lightbox]').forEach(img => {
+
+      const lightboxImages = Array.from(document.querySelectorAll('[data-lightbox]'));
+      let currentIndex = 0;
+
+      lightboxImages.forEach((img, index) => {
         img.addEventListener('click', () => {
-          const target = overlay.querySelector('img');
-          if (!target) return;
-          target.src = img.dataset.full || img.src;
+          currentIndex = index;
+          showLightboxImage();
           overlay.classList.remove('hidden');
         });
       });
-      overlay.addEventListener('click', () => overlay.classList.add('hidden'));
+
+      function showLightboxImage() {
+        const target = overlay.querySelector('img');
+        if (!target || !lightboxImages[currentIndex]) return;
+        target.src = lightboxImages[currentIndex].dataset.full || lightboxImages[currentIndex].src;
+      }
+
+      function nextImage() {
+        currentIndex = (currentIndex + 1) % lightboxImages.length;
+        showLightboxImage();
+      }
+
+      function prevImage() {
+        currentIndex = (currentIndex - 1 + lightboxImages.length) % lightboxImages.length;
+        showLightboxImage();
+      }
+
+      // Close on overlay click (but not on image or buttons)
+      overlay.addEventListener('click', (e) => {
+        if (e.target === overlay || e.target.tagName === 'IMG') {
+          overlay.classList.add('hidden');
+        }
+      });
+
+      // Keyboard navigation
+      document.addEventListener('keydown', (e) => {
+        if (overlay.classList.contains('hidden')) return;
+        if (e.key === 'ArrowRight') nextImage();
+        if (e.key === 'ArrowLeft') prevImage();
+        if (e.key === 'Escape') overlay.classList.add('hidden');
+      });
+
+      // Add navigation buttons
+      const prevBtn = document.getElementById('lightbox-prev');
+      const nextBtn = document.getElementById('lightbox-next');
+      if (prevBtn) prevBtn.addEventListener('click', (e) => { e.stopPropagation(); prevImage(); });
+      if (nextBtn) nextBtn.addEventListener('click', (e) => { e.stopPropagation(); nextImage(); });
     });
   </script>
   <style>
@@ -44,9 +83,10 @@
     <nav class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-20 md:h-24 flex items-center"
          role="navigation" aria-label="Main navigation">
 
-      <!-- Mobile bar: centered ASA symbol that opens menu -->
-      <div class="flex w-full items-center justify-center sm:hidden">
-        <button id="mobile-menu-button" class="rounded-full p-2 hover:bg-white/10 flex items-center gap-3" aria-label="Toggle menu">
+      <!-- Mobile bar: clickable centered logo + burger button on right -->
+      <div class="flex w-full items-center justify-center relative sm:hidden">
+        <!-- Clickable Centered Logo -->
+        <a href="index.html#top" class="flex items-center" aria-label="Go to top">
           <img
             src="images/asa_symbol_white_transparent.png"
             alt="American Skin Art logo"
@@ -54,6 +94,13 @@
             loading="eager"
             decoding="async"
           />
+        </a>
+
+        <!-- Burger Menu Button (Positioned Absolute Right) -->
+        <button id="mobile-menu-button" class="absolute right-0 p-2 transition-opacity hover:opacity-70" aria-label="Toggle menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="text-zinc-600">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
         </button>
       </div>
 
@@ -231,7 +278,17 @@
 
   <!-- Lightbox for gallery -->
   <div id="lightbox" class="hidden fixed inset-0 bg-black/90 backdrop-blur z-50 flex items-center justify-center p-6">
+    <button id="lightbox-prev" class="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/60 border border-white/20 flex items-center justify-center hover:bg-black/80 transition-colors z-10" aria-label="Previous image">
+      <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+      </svg>
+    </button>
     <img class="max-h-[90vh] max-w-[90vw] rounded-xl border border-white/10" alt="Artwork preview" />
+    <button id="lightbox-next" class="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/60 border border-white/20 flex items-center justify-center hover:bg-black/80 transition-colors z-10" aria-label="Next image">
+      <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+      </svg>
+    </button>
   </div>
 
 </body>
