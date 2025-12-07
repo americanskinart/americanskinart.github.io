@@ -495,18 +495,40 @@
           <div>
             <div class="flex flex-col items-center justify-center mb-3">
               <label for="artist" class="sr-only">Preferred Artist</label>
-              <div class="relative w-full">
-                <select id="artist" name="artist" class="w-full rounded-2xl bg-black border border-white/20 px-5 py-4 text-center text-base shadow-lg focus:ring-2 focus:ring-red-700 focus:border-red-700 transition-all duration-200 appearance-none">
-                  <option value="" selected disabled>Preferred Artist (optional)</option>
-                  <option value="Devin Goff">Devin Goff (@sinisterblack_tattoos)</option>
-                  <option value="Danny Peltier">Danny Peltier (@dannypeltier.ink)</option>
-                  <option value="Dale Murray">Dale Murray (@cruelbloomtattoo)</option>
+
+              <!-- Desktop: normal select -->
+              <div class="relative w-full hidden sm:block">
+                <select
+                  id="artist"
+                  name="artist"
+                  class="w-full rounded-2xl bg-black border border-white/20 px-5 py-4 text-center text-base shadow-lg focus:ring-2 focus:ring-red-700 focus:border-red-700 transition-all duration-200 appearance-none"
+                >
+                  <option value="" selected disabled>Preferred Artist</option>
+                  <option value="Devin Goff">Devin Goff</option>
+                  <option value="Danny Peltier">Danny Peltier</option>
+                  <option value="Dale Murray">Dale Murray</option>
                   <option value="No Preference">No Preference</option>
                 </select>
                 <span class="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-zinc-400">
                   <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
                 </span>
               </div>
+
+              <!-- Mobile: burger-style picker button -->
+              <button
+                type="button"
+                id="artist-picker-open"
+                class="sm:hidden inline-flex items-center justify-between w-full rounded-full border border-white/20 bg-black/70 px-4 py-3 text-[0.75rem] tracking-[0.25em] uppercase text-zinc-200 hover:bg-white/5 transition"
+              >
+                <span id="artist-picker-label" class="truncate">
+                  Preferred Artist
+                </span>
+                <span class="ml-3 flex-shrink-0 text-zinc-400">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </span>
+              </button>
             </div>
             <label for="idea" class="sr-only">Your Tattoo Idea</label>
             <textarea id="idea" name="idea" rows="5" class="w-full rounded-xl bg-black/50 border border-white/10 px-4 py-3" placeholder="Describe your idea. Include size in inches, black & grey or color, and any reference links." aria-required="false"></textarea>
@@ -592,7 +614,7 @@
 
           // Show loading on both
           if (loading) loading.style.display = 'block';
-          if (loadingMobile) loadingMobile.style.display = 'block';
+          if (loadingMobile) loading.style.display = 'block';
 
           const formData = new FormData(form);
           fetch(form.action, {
@@ -637,6 +659,74 @@
           });
         });
       }
+
+      // --- Mobile Preferred Artist Picker (mirrors burger menu) ---
+      const artistSelect = document.getElementById('artist');
+      const artistOpenBtn = document.getElementById('artist-picker-open');
+      const artistOverlay = document.getElementById('artist-picker-overlay');
+      const artistCloseBtn = document.getElementById('artist-picker-close');
+      const artistLabel = document.getElementById('artist-picker-label');
+      const artistOptionButtons = document.querySelectorAll('.artist-option');
+      const artistClearBtn = document.querySelector('[data-artist-clear]');
+
+      function openArtistOverlay() {
+        if (!artistOverlay) return;
+        artistOverlay.classList.remove('hidden');
+        document.body.classList.add('overflow-hidden');
+      }
+
+      function closeArtistOverlay() {
+        if (!artistOverlay) return;
+        artistOverlay.classList.add('hidden');
+        document.body.classList.remove('overflow-hidden');
+      }
+
+      if (artistOpenBtn && artistOverlay) {
+        artistOpenBtn.addEventListener('click', openArtistOverlay);
+      }
+      if (artistCloseBtn) {
+        artistCloseBtn.addEventListener('click', closeArtistOverlay);
+      }
+
+      // Select an artist
+      artistOptionButtons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const value = btn.getAttribute('data-artist-value') || '';
+          const label = btn.getAttribute('data-artist-label') || 'Preferred Artist (optional)';
+
+          // Update the real select (even though it's hidden on mobile)
+          if (artistSelect) {
+            artistSelect.value = value;
+          }
+
+          // Update mobile button label
+          if (artistLabel) {
+            artistLabel.textContent = label;
+          }
+
+          closeArtistOverlay();
+        });
+      });
+
+      // Clear selection
+      if (artistClearBtn) {
+        artistClearBtn.addEventListener('click', () => {
+          if (artistSelect) {
+            artistSelect.value = '';
+          }
+          if (artistLabel) {
+            artistLabel.textContent = 'Preferred Artist (optional)';
+          }
+          closeArtistOverlay();
+        });
+      }
+
+      // Close on ESC like the main mobile menu
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && artistOverlay && !artistOverlay.classList.contains('hidden')) {
+          closeArtistOverlay();
+        }
+      });
     });
   </script>
 
@@ -713,6 +803,72 @@
       }
     });
   </script>
+
+  <!-- Mobile Preferred Artist Picker Overlay -->
+  <div
+    id="artist-picker-overlay"
+    class="hidden fixed inset-0 z-50 bg-black"
+  >
+    <div class="flex flex-col items-center justify-center min-h-screen gap-6 text-lg text-zinc-100">
+      <!-- Close button similar to mobile menu -->
+      <button
+        id="artist-picker-close"
+        class="absolute top-4 right-4 p-2 hover:bg-white/10 rounded-full"
+        aria-label="Close artist picker"
+      >
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-6 h-6">
+          <path d="M6 18L18 6M6 6l12 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </button>
+
+      <p class="text-xs tracking-[0.35em] uppercase text-zinc-500">
+        Preferred Artist
+      </p>
+
+      <div class="flex flex-col gap-3 w-4/5 max-w-sm text-center">
+        <button
+          type="button"
+          class="artist-option py-3 rounded-full border border-white/20 bg-black/60 hover:bg-white/10 transition tracking-[0.15em] uppercase text-xs"
+          data-artist-value="Devin Goff"
+          data-artist-label="Devin Goff"
+        >
+          Devin Goff
+        </button>
+        <button
+          type="button"
+          class="artist-option py-3 rounded-full border border-white/20 bg-black/60 hover:bg-white/10 transition tracking-[0.15em] uppercase text-xs"
+          data-artist-value="Danny Peltier"
+          data-artist-label="Danny Peltier"
+        >
+          Danny Peltier
+        </button>
+        <button
+          type="button"
+          class="artist-option py-3 rounded-full border border-white/20 bg-black/60 hover:bg-white/10 transition tracking-[0.15em] uppercase text-xs"
+          data-artist-value="Dale Murray"
+          data-artist-label="Dale Murray"
+        >
+          Dale Murray
+        </button>
+        <button
+          type="button"
+          class="artist-option py-3 rounded-full border border-white/20 bg-black/60 hover:bg-white/10 transition tracking-[0.15em] uppercase text-xs"
+          data-artist-value="No Preference"
+          data-artist-label="No Preference"
+        >
+          No Preference
+        </button>
+      </div>
+
+      <button
+        type="button"
+        class="mt-4 text-[0.6rem] uppercase tracking-[0.25em] text-zinc-500 hover:text-zinc-300"
+        data-artist-clear
+      >
+        Clear selection
+      </button>
+    </div>
+  </div>
 
   <!-- Floating Creator Badge (avatar above text) -->
   <div id="creator-badge" class="fixed bottom-4 right-4 z-50 flex flex-col items-center gap-1.5 bg-black/60 backdrop-blur rounded-2xl shadow-lg px-2.5 py-2.5">
