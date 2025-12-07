@@ -52,14 +52,14 @@
     });
   </script>
 </head>
-
 <body class="inter bg-[#0b0b0b] text-zinc-100 selection:bg-red-700/50 page-overlay">
+  
   <!-- Header -->
   <header class="fixed top-0 left-0 right-0 z-40 bg-gradient-to-b from-black/80 to-transparent transition-colors duration-300" role="banner">
     <nav class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-20 md:h-24 flex items-center"
          role="navigation" aria-label="Main navigation">
 
-      <!-- Mobile bar: clickable centered logo + burger button on right -->
+      <!-- Mobile bar -->
       <div class="flex w-full items-center justify-center relative sm:hidden">
         <!-- Clickable Centered Logo -->
         <a href="index.html#top" class="flex items-center" aria-label="Go to top">
@@ -72,7 +72,7 @@
           />
         </a>
 
-        <!-- Burger Menu Button (Positioned Absolute Right) -->
+        <!-- Burger Menu Button  -->
         <button id="mobile-menu-button" class="absolute right-0 p-2 transition-opacity hover:opacity-70" aria-label="Toggle menu">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="text-zinc-600">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
@@ -80,7 +80,7 @@
         </button>
       </div>
 
-      <!-- Desktop bar: centered nav row + IG on right -->
+      <!-- Desktop bar -->
       <div class="hidden sm:grid w-full grid-cols-[1fr_auto_1fr] items-center">
         <div></div>
         <div class="flex items-center justify-center gap-12">
@@ -165,7 +165,7 @@
         </h2>
       </div>
 
-      <!-- ARTISTS STAGGERED LAYOUT -->
+      <!-- ARTISTS -->
       <section id="artists" class="mx-auto max-w-7xl px-6 py-10 space-y-16">
         <!-- DEVIN -->
         <a href="sinisterblack_tattoos.html"
@@ -212,7 +212,7 @@
           </div>
         </a>
 
-        <!-- DANNY (reversed layout on large screens) -->
+        <!-- DANNY  -->
         <a href="dannypeltier.ink.html"
            class="group block rounded-3xl border border-white/10 bg-gradient-to-bl from-black/80 via-black/70 to-zinc-900/70 overflow-hidden">
           <div class="grid gap-8 lg:grid-cols-12 items-center">
@@ -301,7 +301,6 @@
             </div>
           </div>
         </a>
-
         <!-- Copy/paste one of the blocks above to add more artists -->
       </section>
 
@@ -344,7 +343,7 @@
 </footer>
 
 
-  <!-- LIGHTBOX OVERLAY (for future gallery use) -->
+  <!-- LIGHTBOX OVERLAY -->
   <div id="lightbox"
        class="hidden fixed inset-0 bg-black/90 backdrop-blur z-50 flex items-center justify-center p-6">
     <img
@@ -394,7 +393,7 @@
     window.addEventListener('scroll', updateHeaderBackground, { passive: true });
   </script>
 
-  <!-- Floating Creator Badge (avatar above text) -->
+  <!-- Floating Creator Badge -->
 <div id="creator-badge" class="fixed bottom-4 right-4 z-50 flex flex-col items-center gap-1.5 bg-black/60 backdrop-blur rounded-2xl shadow-lg px-2.5 py-2.5">
     <a href="https://instagram.com/ffogekaj" target="_blank" rel="noopener"
        aria-label="Visit @ffogekaj on Instagram"
