@@ -144,12 +144,9 @@
         if (!lightboxItems[index]) return;
         lightboxIndex = index;
         const item = lightboxItems[index];
-        const meta = getArtistMeta(item);
-        const href = meta.page || item.href || '#';
-
         el.lightboxImg.src = item.src;
         el.lightboxImg.alt = item.alt || '';
-
+        const href = item.href || getArtistMeta(item).page || '#';
         if (href && href !== '#') {
           el.lightboxLink.href = href;
           el.lightboxLink.style.display = 'block';
@@ -246,7 +243,7 @@
           li.setAttribute('aria-label', (i+1) + ' of ' + items.length);
 
           const meta = getArtistMeta(it);
-          const href = meta.page || it.href || '#';
+          const href = it.href || meta.page || '#';
 
           const img = document.createElement('img');
           img.decoding = 'async';
