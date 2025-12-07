@@ -493,6 +493,21 @@
             </div>
           </div>
           <div>
+            <div class="flex flex-col items-center justify-center mb-3">
+              <label for="artist" class="sr-only">Preferred Artist</label>
+              <div class="relative w-full">
+                <select id="artist" name="artist" class="w-full rounded-2xl bg-black border border-white/20 px-5 py-4 text-center text-base shadow-lg focus:ring-2 focus:ring-red-700 focus:border-red-700 transition-all duration-200 appearance-none">
+                  <option value="" selected disabled>Preferred Artist (optional)</option>
+                  <option value="Devin Goff">Devin Goff (@sinisterblack_tattoos)</option>
+                  <option value="Danny Peltier">Danny Peltier (@dannypeltier.ink)</option>
+                  <option value="Dale Murray">Dale Murray (@cruelbloomtattoo)</option>
+                  <option value="No Preference">No Preference</option>
+                </select>
+                <span class="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-zinc-400">
+                  <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+                </span>
+              </div>
+            </div>
             <label for="idea" class="sr-only">Your Tattoo Idea</label>
             <textarea id="idea" name="idea" rows="5" class="w-full rounded-xl bg-black/50 border border-white/10 px-4 py-3" placeholder="Describe your idea. Include size in inches, black & grey or color, and any reference links." aria-required="false"></textarea>
           </div>
