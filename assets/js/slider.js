@@ -88,7 +88,17 @@
         '  <div class="dots" role="tablist" aria-label="Slides"></div>',
         '</div>',
         '<div class="slider-lightbox hidden fixed inset-0 bg-black/95 backdrop-blur z-50 flex items-center justify-center p-4" style="cursor: pointer;">',
+        '  <button class="lightbox-prev absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/60 border border-white/20 flex items-center justify-center hover:bg-black/80 transition-colors z-10" aria-label="Previous image">',
+        '    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">',
+        '      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>',
+        '    </svg>',
+        '  </button>',
         '  <img class="max-h-[90vh] max-w-[90vw] rounded-xl border border-white/10" alt="" style="cursor: pointer;" />',
+        '  <button class="lightbox-next absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/60 border border-white/20 flex items-center justify-center hover:bg-black/80 transition-colors z-10" aria-label="Next image">',
+        '    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">',
+        '      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>',
+        '    </svg>',
+        '  </button>',
         '  <a class="absolute top-6 right-6 ink-button text-sm" style="cursor: pointer; pointer-events: auto;">View Artist Page</a>',
         '</div>'
       ].join('');
@@ -101,10 +111,13 @@
         dots:  mount.querySelector('.dots'),
         lightbox: mount.querySelector('.slider-lightbox'),
         lightboxImg: mount.querySelector('.slider-lightbox img'),
-        lightboxLink: mount.querySelector('.slider-lightbox a')
+        lightboxLink: mount.querySelector('.slider-lightbox a'),
+        lightboxPrev: mount.querySelector('.lightbox-prev'),
+        lightboxNext: mount.querySelector('.lightbox-next')
       };
 
       let slides = [], idx = 0, timer = null, hovering = false, touching = false, touchStartX = 0, touchStartY = 0, touchStartTime = 0;
+      let lightboxIndex = 0, lightboxItems = [];
 
       // Lightbox functions
       function openLightbox(src, alt, artistPage) {
@@ -127,6 +140,34 @@
         document.body.style.overflow = '';
       }
 
+      function showLightboxImage(index) {
+        if (!lightboxItems[index]) return;
+        lightboxIndex = index;
+        const item = lightboxItems[index];
+        const meta = getArtistMeta(item);
+        const href = meta.page || item.href || '#';
+
+        el.lightboxImg.src = item.src;
+        el.lightboxImg.alt = item.alt || '';
+
+        if (href && href !== '#') {
+          el.lightboxLink.href = href;
+          el.lightboxLink.style.display = 'block';
+        } else {
+          el.lightboxLink.style.display = 'none';
+        }
+      }
+
+      function nextLightboxImage() {
+        lightboxIndex = (lightboxIndex + 1) % lightboxItems.length;
+        showLightboxImage(lightboxIndex);
+      }
+
+      function prevLightboxImage() {
+        lightboxIndex = (lightboxIndex - 1 + lightboxItems.length) % lightboxItems.length;
+        showLightboxImage(lightboxIndex);
+      }
+
       // Lightbox event handlers
       el.lightbox.addEventListener('click', (e) => {
         // Close when clicking the background (not the image or link)
@@ -144,16 +185,33 @@
         e.stopPropagation(); // Don't close lightbox when clicking the link
       });
 
-      // Close on Escape key
+      // Navigation button handlers
+      el.lightboxPrev.addEventListener('click', (e) => {
+        e.stopPropagation();
+        prevLightboxImage();
+      });
+
+      el.lightboxNext.addEventListener('click', (e) => {
+        e.stopPropagation();
+        nextLightboxImage();
+      });
+
+      // Keyboard navigation
       document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && !el.lightbox.classList.contains('hidden')) {
+        if (el.lightbox.classList.contains('hidden')) return;
+        if (e.key === 'Escape') {
           closeLightbox();
+        } else if (e.key === 'ArrowRight') {
+          nextLightboxImage();
+        } else if (e.key === 'ArrowLeft') {
+          prevLightboxImage();
         }
       });
 
       function render(items){
         el.track.innerHTML = '';
         el.dots.innerHTML = '';
+        lightboxItems = items; // Store items for lightbox navigation
 
         items.forEach((it, i) => {
           const li = document.createElement('figure');
@@ -176,6 +234,7 @@
           img.addEventListener('click', (e) => {
             e.preventDefault();
             e.stopPropagation();
+            lightboxIndex = i; // Set current index
             openLightbox(it.src, it.alt || '', href);
           });
 
