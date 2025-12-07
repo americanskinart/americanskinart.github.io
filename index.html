@@ -692,7 +692,7 @@
       artistOptionButtons.forEach((btn) => {
         btn.addEventListener('click', () => {
           const value = btn.getAttribute('data-artist-value') || '';
-          const label = btn.getAttribute('data-artist-label') || 'Preferred Artist (optional)';
+          const label = btn.getAttribute('data-artist-label') || 'Preferred Artist';
 
           // Update the real select (even though it's hidden on mobile)
           if (artistSelect) {
