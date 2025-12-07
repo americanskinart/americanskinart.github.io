@@ -7,7 +7,7 @@
             <path d="M6 12h12v9a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-9Z" stroke="currentColor" stroke-width="1.2"/>
           </svg>
         </span>
-        <a href="deadedwalker_memorial.html" class="text-xs">
+        <a href="artists/deadedwalker_memorial.html" class="text-xs">
           In loving memory of <strong>Dead Ed Walker</strong>
         </a>
       </div>

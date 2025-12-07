@@ -1,9 +1,9 @@
 // assets/js/slider.js — JSON-driven showcase slider (instagram-first, fallback to inline)
 (function(){
   const ARTIST_ROUTES = [
-    { key: 'sinisterblack_tattoos', handle: '@sinisterblack_tattoos', page: 'sinisterblack_tattoos.html' },
-    { key: 'dannypeltier.ink', handle: '@dannypeltier.ink', page: 'dannypeltier.ink.html' },
-    { key: 'cruelbloomtattoo', handle: '@cruelbloomtattoo', page: 'cruelbloomtattoo.html' }
+    { key: 'sinisterblack_tattoos', handle: '@sinisterblack_tattoos', page: 'artists/sinisterblack_tattoos.html' },
+    { key: 'dannypeltier.ink', handle: '@dannypeltier.ink', page: 'artists/dannypeltier.ink.html' },
+    { key: 'cruelbloomtattoo', handle: '@cruelbloomtattoo', page: 'artists/cruelbloomtattoo.html' }
   ];
 
   const Slider = function(opts){
