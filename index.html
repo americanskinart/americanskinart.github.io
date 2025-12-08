@@ -25,15 +25,24 @@
   <link rel="canonical" href="https://americanskinart.com/">
 
   <title>American Skin Art</title>
-  <meta name="description" content="At American Skin Art, every tattoo starts with a conversation. Custom designs, black & grey, fine line, bold graphic, cover-ups, and small tattoos—done with safety, care, and longevity in mind." />
-  <meta name="description" content="American Skin Art is a custom tattoo studio in North Tonawanda, just outside Buffalo, NY. Specializing in black and grey, realism, fine line, and cover-up tattoos, artist Devin Goff creates bold, long-lasting work for Buffalo, Bills Mafia, and Western New York." />
-  <meta name="theme-color" content="#0b0b0b" />
-  <meta property="og:title" content="American Skin Art — Devin Goff" />
-  <meta property="og:description" content="North Tonawanda's destination for custom tattoos. View portfolio and book a consult." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://americanskinart.com/" />
-  <meta property="og:image" content="https://americanskinart.com/images/asa_logo.png" />
-  <meta property="og:locale" content="en_US" />
+
+    <!-- Primary Description -->
+    <meta name="description" content="American Skin Art in North Tonawanda is a Buffalo-area tattoo studio specializing in black and grey, realism, fine line, and cover-up tattoos. Every piece starts with a real conversation and is designed for comfort, safety, and long-lasting quality—trusted by Buffalo, Bills Mafia, and the 716." />
+
+    <!-- Keywords -->
+    <meta name="keywords" content="American Skin Art, tattoo shop Buffalo, tattoo artist Buffalo NY, Buffalo tattoos, North Tonawanda tattoos, Devin Goff, black and grey tattoos, custom tattoo artist, realism tattoos, fine line tattoos, cover up tattoos, 716 tattoos, Bills Mafia tattoos, Sabres tattoos, Buffalo NY tattoo studio, Niagara Falls tattoos, Western New York tattoos, WNY tattoo artist, private tattoo studio Buffalo" />
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#0b0b0b" />
+
+    <!-- Open Graph (Social Sharing) -->
+    <meta property="og:title" content="American Skin Art — Devin Goff" />
+    <meta property="og:description" content="American Skin Art is a custom tattoo studio in North Tonawanda offering black and grey, realism, fine line, and custom tattoos by artist Devin Goff. View portfolio and book a consult." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://americanskinart.com/" />
+    <meta property="og:image" content="https://americanskinart.com/images/asa_logo.png" />
+    <meta property="og:locale" content="en_US" />
+
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -510,38 +519,26 @@
   <!-- Shop Slideshow - Desktop -->
   <section class="hidden sm:block mx-auto max-w-7xl px-6 py-12">
     <div class="relative group">
-      <a href="https://www.instagram.com/americanskinart" target="_blank" rel="noopener"
-         class="block relative rounded-2xl overflow-hidden border border-white/10 bg-black/40 hover:border-white/20">
+      <div class="block relative rounded-2xl overflow-hidden border border-white/10 bg-black/40">
         <div id="shop-slideshow" class="w-full relative">
-          <div class="absolute inset-0 bg-black flex">
-            <div class="animate-pulse text-center py-8">Loading...</div>
+          <div class="absolute inset-0 bg-black flex items-center justify-center">
+            <div class="animate-pulse text-center py-8">Loading slideshow...</div>
           </div>
         </div>
-        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 bg-black/60 backdrop-blur-sm transition-opacity duration-300">
-          <span class="ink-button pointer-events-none">
-            Follow @americanskinart
-          </span>
-        </div>
-      </a>
+      </div>
     </div>
   </section>
 
   <!-- Shop Slideshow - Mobile -->
   <section class="sm:hidden mx-auto max-w-7xl px-6 py-12">
     <div class="relative group">
-      <a href="https://www.instagram.com/americanskinart" target="_blank" rel="noopener"
-         class="block relative rounded-2xl overflow-hidden border border-white/10 bg-black/40 hover:border-white/20">
+      <div class="block relative rounded-2xl overflow-hidden border border-white/10 bg-black/40">
         <div id="shop-slideshow-mobile" class="w-full relative aspect-[4/5]">
-          <div class="absolute inset-0 bg-black flex">
-            <div class="animate-pulse text-center py-8">Loading...</div>
+          <div class="absolute inset-0 bg-black flex items-center justify-center">
+            <div class="animate-pulse text-center py-8">Loading slideshow...</div>
           </div>
         </div>
-        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 bg-black/60 backdrop-blur-sm transition-opacity duration-300">
-          <span class="ink-button pointer-events-none">
-            Follow @americanskinart
-          </span>
-        </div>
-      </a>
+      </div>
     </div>
   </section>
 
@@ -1065,144 +1062,156 @@
   <!-- Shop Slideshow Script -->
   <script>
   (function(){
-    const slides = [
-      'images/artists/sinisterblack_tattoos/devin-01.png',
-      'images/artists/sinisterblack_tattoos/devin-02.png',
-      'images/artists/sinisterblack_tattoos/devin-03.png',
-      'images/artists/sinisterblack_tattoos/devin-04.png',
-      'images/artists/sinisterblack_tattoos/devin-05.png',
-      'images/artists/sinisterblack_tattoos/devin-06.png',
-      'images/artists/sinisterblack_tattoos/devin-07.png',
-      'images/artists/sinisterblack_tattoos/devin-08.png',
-      'images/artists/sinisterblack_tattoos/devin-09.png',
-      'images/artists/sinisterblack_tattoos/devin-10.png',
-      'images/artists/sinisterblack_tattoos/devin-11.png',
-      'images/artists/sinisterblack_tattoos/devin-12.png',
-      'images/artists/dannypeltier.ink/work-01.png',
-      'images/artists/dannypeltier.ink/work-02.png',
-      'images/artists/dannypeltier.ink/work-03.png',
-      'images/artists/dannypeltier.ink/work-04.png',
-      'images/artists/dannypeltier.ink/work-05.png',
-      'images/artists/dannypeltier.ink/work-06.png',
-      'images/artists/dannypeltier.ink/work-07.png',
-      'images/artists/dannypeltier.ink/work-08.png',
-      'images/artists/dannypeltier.ink/work-09.png',
-      'images/artists/dannypeltier.ink/work-10.png',
-      'images/artists/dannypeltier.ink/work-11.png',
-      'images/artists/dannypeltier.ink/work-12.png',
-      'images/artists/cruelbloomtattoo/work-01.png',
-      'images/artists/cruelbloomtattoo/work-02.png',
-      'images/artists/cruelbloomtattoo/work-03.png',
-      'images/artists/cruelbloomtattoo/work-04.png',
-      'images/artists/cruelbloomtattoo/work-05.png',
-      'images/artists/cruelbloomtattoo/work-06.png',
-      'images/artists/cruelbloomtattoo/work-07.png',
-      'images/artists/cruelbloomtattoo/work-08.png',
-      'images/artists/cruelbloomtattoo/work-09.png',
-      'images/artists/cruelbloomtattoo/work-10.png',
-      'images/artists/cruelbloomtattoo/work-11.png',    
-      'images/artists/cruelbloomtattoo/work-12.png'
-    ];
+    // Fetch images dynamically from PHP API
+    fetch('api/get-slideshow-images.php')
+      .then(response => response.json())
+      .then(data => {
+        if (data.length === 0) {
+          console.warn('No slideshow images found');
+          return;
+        }
 
-    // Desktop Slideshow
-    const desktopSlideshow = document.getElementById('shop-slideshow');
-    if (desktopSlideshow) {
-      let currentIndex = 0;
-      let track = null;
-
-      desktopSlideshow.innerHTML = '';
-      const wrapper = document.createElement('div');
-      wrapper.className = 'absolute inset-0 overflow-hidden';
-
-      track = document.createElement('div');
-      track.className = 'flex h-full transition-transform duration-500 ease-in-out';
-      track.style.width = (slides.length * 100) + '%';
-
-      slides.forEach((src) => {
-        const slideDiv = document.createElement('div');
-        slideDiv.style.width = (100 / slides.length) + '%';
-        slideDiv.style.height = '100%';
-        slideDiv.style.display = 'flex';
-        slideDiv.style.alignItems = 'center';
-        slideDiv.style.justifyContent = 'center';
-        slideDiv.style.flexShrink = '0';
-        slideDiv.style.padding = '1rem';
-        slideDiv.style.boxSizing = 'border-box';
-
-        const img = document.createElement('img');
-        img.src = src;
-        img.loading = 'lazy';
-        img.decoding = 'async';
-        img.style.maxWidth = '100%';
-        img.style.maxHeight = '100%';
-        img.style.width = 'auto';
-        img.style.height = 'auto';
-        img.style.objectFit = 'contain';
-
-        slideDiv.appendChild(img);
-        track.appendChild(slideDiv);
+        initializeSlideshow(data);
+      })
+      .catch(error => {
+        console.error('Error loading slideshow images:', error);
+        // Fallback to empty slideshow or show error message
       });
 
-      wrapper.appendChild(track);
-      desktopSlideshow.appendChild(wrapper);
+    function initializeSlideshow(slideData) {
+      // Desktop Slideshow
+      const desktopSlideshow = document.getElementById('shop-slideshow');
+      if (desktopSlideshow) {
+        let currentIndex = 0;
+        let track = null;
 
-      function nextSlide() {
-        currentIndex = (currentIndex + 1) % slides.length;
-        const offset = -(currentIndex * (100 / slides.length));
-        track.style.transform = `translateX(${offset}%)`;
+        desktopSlideshow.innerHTML = '';
+        const wrapper = document.createElement('div');
+        wrapper.className = 'absolute inset-0 overflow-hidden';
+
+        track = document.createElement('div');
+        track.className = 'flex h-full transition-transform duration-500 ease-in-out';
+        track.style.width = (slideData.length * 100) + '%';
+
+        slideData.forEach((item) => {
+          const slideDiv = document.createElement('div');
+          slideDiv.style.width = (100 / slideData.length) + '%';
+          slideDiv.style.height = '100%';
+          slideDiv.style.display = 'flex';
+          slideDiv.style.alignItems = 'center';
+          slideDiv.style.justifyContent = 'center';
+          slideDiv.style.flexShrink = '0';
+          slideDiv.style.padding = '1rem';
+          slideDiv.style.boxSizing = 'border-box';
+
+          const link = document.createElement('a');
+          link.href = item.href || '#';
+          link.style.display = 'flex';
+          link.style.alignItems = 'center';
+          link.style.justifyContent = 'center';
+          link.style.width = '100%';
+          link.style.height = '100%';
+          link.style.textDecoration = 'none';
+
+          const img = document.createElement('img');
+          img.src = item.src;
+          img.alt = item.alt || '';
+          img.loading = 'lazy';
+          img.decoding = 'async';
+          img.style.maxWidth = '100%';
+          img.style.maxHeight = '100%';
+          img.style.width = 'auto';
+          img.style.height = 'auto';
+          img.style.objectFit = 'contain';
+          img.style.cursor = 'pointer';
+          img.style.transition = 'transform 0.3s ease';
+
+          // Add hover effect
+          img.addEventListener('mouseenter', () => {
+            img.style.transform = 'scale(1.05)';
+          });
+          img.addEventListener('mouseleave', () => {
+            img.style.transform = 'scale(1)';
+          });
+
+          link.appendChild(img);
+          slideDiv.appendChild(link);
+          track.appendChild(slideDiv);
+        });
+
+        wrapper.appendChild(track);
+        desktopSlideshow.appendChild(wrapper);
+
+        function nextSlide() {
+          currentIndex = (currentIndex + 1) % slideData.length;
+          const offset = -(currentIndex * (100 / slideData.length));
+          track.style.transform = `translateX(${offset}%)`;
+        }
+
+        setInterval(nextSlide, 4000);
       }
 
-      setInterval(nextSlide, 4000);
-    }
+      // Mobile Slideshow
+      const mobileSlideshow = document.getElementById('shop-slideshow-mobile');
+      if (mobileSlideshow) {
+        let currentIndex = 0;
+        let track = null;
 
-    // Mobile Slideshow
-    const mobileSlideshow = document.getElementById('shop-slideshow-mobile');
-    if (mobileSlideshow) {
-      let currentIndex = 0;
-      let track = null;
+        mobileSlideshow.innerHTML = '';
+        const wrapper = document.createElement('div');
+        wrapper.className = 'absolute inset-0 overflow-hidden';
 
-      mobileSlideshow.innerHTML = '';
-      const wrapper = document.createElement('div');
-      wrapper.className = 'absolute inset-0 overflow-hidden';
+        track = document.createElement('div');
+        track.className = 'flex h-full transition-transform duration-500 ease-in-out';
+        track.style.width = (slideData.length * 100) + '%';
 
-      track = document.createElement('div');
-      track.className = 'flex h-full transition-transform duration-500 ease-in-out';
-      track.style.width = (slides.length * 100) + '%';
+        slideData.forEach((item) => {
+          const slideDiv = document.createElement('div');
+          slideDiv.style.width = (100 / slideData.length) + '%';
+          slideDiv.style.height = '100%';
+          slideDiv.style.display = 'flex';
+          slideDiv.style.alignItems = 'center';
+          slideDiv.style.justifyContent = 'center';
+          slideDiv.style.flexShrink = '0';
+          slideDiv.style.boxSizing = 'border-box';
 
-      slides.forEach((src) => {
-        const slideDiv = document.createElement('div');
-        slideDiv.style.width = (100 / slides.length) + '%';
-        slideDiv.style.height = '100%';
-        slideDiv.style.display = 'flex';
-        slideDiv.style.alignItems = 'center';
-        slideDiv.style.justifyContent = 'center';
-        slideDiv.style.flexShrink = '0';
-        slideDiv.style.boxSizing = 'border-box';
+          const link = document.createElement('a');
+          link.href = item.href || '#';
+          link.style.display = 'flex';
+          link.style.alignItems = 'center';
+          link.style.justifyContent = 'center';
+          link.style.width = '100%';
+          link.style.height = '100%';
+          link.style.textDecoration = 'none';
 
-        const img = document.createElement('img');
-        img.src = src;
-        img.loading = 'lazy';
-        img.decoding = 'async';
-        img.style.maxWidth = '70%';
-        img.style.maxHeight = '70%';
-        img.style.width = 'auto';
-        img.style.height = 'auto';
-        img.style.objectFit = 'contain';
+          const img = document.createElement('img');
+          img.src = item.src;
+          img.alt = item.alt || '';
+          img.loading = 'lazy';
+          img.decoding = 'async';
+          img.style.maxWidth = '70%';
+          img.style.maxHeight = '70%';
+          img.style.width = 'auto';
+          img.style.height = 'auto';
+          img.style.objectFit = 'contain';
+          img.style.cursor = 'pointer';
 
-        slideDiv.appendChild(img);
-        track.appendChild(slideDiv);
-      });
+          link.appendChild(img);
+          slideDiv.appendChild(link);
+          track.appendChild(slideDiv);
+        });
 
-      wrapper.appendChild(track);
-      mobileSlideshow.appendChild(wrapper);
+        wrapper.appendChild(track);
+        mobileSlideshow.appendChild(wrapper);
 
-      function nextSlideMobile() {
-        currentIndex = (currentIndex + 1) % slides.length;
-        const offset = -(currentIndex * (100 / slides.length));
-        track.style.transform = `translateX(${offset}%)`;
+        function nextSlideMobile() {
+          currentIndex = (currentIndex + 1) % slideData.length;
+          const offset = -(currentIndex * (100 / slideData.length));
+          track.style.transform = `translateX(${offset}%)`;
+        }
+
+        setInterval(nextSlideMobile, 4000);
       }
-
-      setInterval(nextSlideMobile, 4000);
     }
   })();
   </script>
