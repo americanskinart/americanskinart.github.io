@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <title>Flash — American Skin Art</title>
+  <meta name="description" content="Browse our collection of flash designs available for booking at American Skin Art." />
+  <meta name="theme-color" content="#0b0b0b" />
+  <meta property="og:title" content="Flash — American Skin Art" />
+  <meta property="og:description" content="Browse our flash designs available for booking." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_US" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Cormorant+Garamond:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const overlay = document.getElementById('lightbox');
+      if (!overlay) return;
+
+      const lightboxImages = Array.from(document.querySelectorAll('[data-lightbox]'));
+      let currentIndex = 0;
+
+      lightboxImages.forEach((img, index) => {
+        img.addEventListener('click', () => {
+          currentIndex = index;
+          showLightboxImage();
+          overlay.classList.remove('hidden');
+        });
+      });
+
+      function showLightboxImage() {
+        const target = overlay.querySelector('img');
+        if (!target || !lightboxImages[currentIndex]) return;
+        target.src = lightboxImages[currentIndex].dataset.full || lightboxImages[currentIndex].src;
+      }
+
+      function nextImage() {
+        currentIndex = (currentIndex + 1) % lightboxImages.length;
+        showLightboxImage();
+      }
+
+      function prevImage() {
+        currentIndex = (currentIndex - 1 + lightboxImages.length) % lightboxImages.length;
+        showLightboxImage();
+      }
+
+      // Close on overlay click (but not on image or buttons)
+      overlay.addEventListener('click', (e) => {
+        if (e.target === overlay || e.target.tagName === 'IMG') {
+          overlay.classList.add('hidden');
+        }
+      });
+
+      // Keyboard navigation
+      document.addEventListener('keydown', (e) => {
+        if (overlay.classList.contains('hidden')) return;
+        if (e.key === 'ArrowRight') nextImage();
+        if (e.key === 'ArrowLeft') prevImage();
+        if (e.key === 'Escape') overlay.classList.add('hidden');
+      });
+
+      // Add navigation buttons
+      const prevBtn = document.getElementById('lightbox-prev');
+      const nextBtn = document.getElementById('lightbox-next');
+      if (prevBtn) prevBtn.addEventListener('click', (e) => { e.stopPropagation(); prevImage(); });
+      if (nextBtn) nextBtn.addEventListener('click', (e) => { e.stopPropagation(); nextImage(); });
+
+      // Touch/swipe support
+      let touchStartX = 0;
+      let touchStartY = 0;
+      overlay.addEventListener('touchstart', (e) => {
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+      }, { passive: true });
+
+      overlay.addEventListener('touchmove', (e) => {
+        if (overlay.classList.contains('hidden')) return;
+        const touchCurrentX = e.touches[0].clientX;
+        const touchCurrentY = e.touches[0].clientY;
+        const dx = touchCurrentX - touchStartX;
+        const dy = touchCurrentY - touchStartY;
+
+        // Prevent default scrolling for horizontal swipes
+        if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 10) {
+          e.preventDefault();
+        }
+      }, { passive: false });
+
+      overlay.addEventListener('touchend', (e) => {
+        if (overlay.classList.contains('hidden')) return;
+        const touchEndX = e.changedTouches[0].clientX;
+        const touchEndY = e.changedTouches[0].clientY;
+        const dx = touchEndX - touchStartX;
+        const dy = touchEndY - touchStartY;
+
+        // Only handle horizontal swipes
+        if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 50) {
+          if (dx > 0) {
+            prevImage(); // Swipe right -> previous
+          } else {
+            nextImage(); // Swipe left -> next
+          }
+        }
+      }, { passive: true });
+    });
+  </script>
+  <style>
+    :root{--ink:#0a0a0a;--paper:#0b0b0b;--blood:#c1121f;--steel:#bdbdbd}
+    html{scroll-behavior:smooth}
+    .display{font-family:'Cormorant Garamond',serif; letter-spacing:.04em}
+    .inter{font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Sans","Apple Color Emoji","Segoe UI Emoji"}
+  </style>
+</head>
+<body class="inter bg-[#0b0b0b] text-zinc-100 selection:bg-red-700/50 page-overlay">
+  <header class="fixed top-0 left-0 right-0 z-40 bg-gradient-to-b from-black/80 to-transparent transition-colors duration-300" role="banner">
+    <nav class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-20 md:h-24 flex items-center"
+         role="navigation" aria-label="Main navigation">
+
+      <!-- Mobile bar -->
+      <div class="flex w-full items-center justify-center relative sm:hidden">
+        <!-- Clickable Centered Logo -->
+        <a href="index.html#top" class="flex items-center" aria-label="Go to top">
+          <img
+            src="images/asa_symbol_white_transparent.png"
+            alt="American Skin Art logo"
+            class="h-12 object-contain drop-shadow"
+            loading="eager"
+            decoding="async"
+          />
+        </a>
+
+        <!-- Burger Menu Button (Positioned Absolute Right) -->
+        <button id="mobile-menu-button" class="absolute right-0 p-2 transition-opacity hover:opacity-70" aria-label="Toggle menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="text-zinc-600">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Desktop Bar -->
+      <div class="hidden sm:grid w-full grid-cols-[1fr_auto_1fr] items-center">
+        <!-- left spacer -->
+        <div></div>
+
+        <!-- Centered Nav Row -->
+        <div class="flex items-center justify-center gap-12">
+          <a href="artists.html"
+             class="text-sm tracking-[0.3em] uppercase text-zinc-300 hover:text-white/90 transition-colors">
+            Artists
+          </a>
+          <a href="flash.html"
+             class="text-sm tracking-[0.3em] uppercase text-zinc-300 hover:text-white/90 transition-colors">
+            Flash
+          </a>
+          <a href="shop.html"
+             class="text-sm tracking-[0.3em] uppercase text-zinc-300 hover:text-white/90 transition-colors">
+            Shop
+          </a>
+          <a href="index.html#top"
+             class="flex items-center justify-center"
+             aria-label="Go to top">
+            <img
+              src="images/asa_symbol_white_transparent.png"
+              alt="American Skin Art"
+              class="h-12 object-contain"
+              loading="eager"
+              decoding="async"
+            />
+          </a>
+          <a href="faq.html"
+             class="text-sm tracking-[0.3em] uppercase text-zinc-300 hover:text-white/90 transition-colors">
+            FAQ
+          </a>
+          <a href="about.html"
+             class="text-sm tracking-[0.3em] uppercase text-zinc-300 hover:text-white/90 transition-colors">
+            About
+          </a>
+          <a href="contact.html"
+             class="text-sm tracking-[0.3em] uppercase text-zinc-300 hover:text-white/90 transition-colors">
+            Contact
+          </a>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="hidden fixed inset-0" style="z-index: 9999 !important; background-color: #000000 !important; background-image: none !important;">
+        <div class="flex flex-col items-center justify-center min-h-screen gap-8 text-lg" style="background-color: #000000 !important; width: 100%; height: 100%;">
+          <button id="close-mobile-menu" class="absolute top-4 right-4 p-2 hover:bg-white/10 rounded-full">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-6 h-6">
+              <path d="M6 18L18 6M6 6l12 12" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </button>
+          <a href="index.html#top" class="hover:opacity-80 transition-opacity" aria-label="Go to top">
+            <img
+              src="images/asa_symbol_white_transparent.png"
+              alt="American Skin Art"
+              class="h-20 object-contain drop-shadow mb-4"
+              loading="eager"
+              decoding="async"
+            />
+          </a>
+          <a href="index.html#portfolio" class="hover:text-white/90 text-zinc-300">Portfolio</a>
+          <a href="artists.html" class="hover:text-white/90 text-zinc-300">Artists</a>
+          <a href="flash.html" class="hover:text-white/90 text-zinc-300">Flash</a>
+          <a href="shop.html" class="hover:text-white/90 text-zinc-300">Shop</a>
+          <a href="faq.html" class="hover:text-white/90 text-zinc-300">FAQ</a>
+          <a href="about.html" class="hover:text-white/90 text-zinc-300">About</a>
+          <a href="contact.html" class="hover:text-white/90 text-zinc-300">Contact</a>
+          <a href="index.html#book" class="mt-4 w-full ink-button justify-center">Book Now</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <section class="mx-auto max-w-7xl px-6 pt-32 pb-12 md:pt-40">
+    <div class="max-w-4xl mx-auto">
+      <aside class="text-center">
+        <h1 class="display text-4xl tracking-wider">Flash Designs</h1>
+        <div class="mt-6 text-zinc-300 text-base leading-relaxed">
+          <p>Browse our collection of flash designs available for booking.</p>
+        </div>
+        <div class="mt-6 flex justify-center">
+          <a href="index.html#book" class="ink-button text-sm px-6 py-2">Book Now</a>
+        </div>
+      </aside>
+    </div>
+
+    <!-- Image Grid - Add your flash images here -->
+    <div class="mt-6 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <!-- Add your flash images below. Copy the pattern for each .png in images/shop/flash -->
+        <div class="group rounded-xl overflow-hidden border border-white/10 bg-black/30">
+          <img loading="lazy" data-lightbox class="group-hover:scale-[1.03] transition-transform duration-300 aspect-[3/4] w-full object-cover rounded-xl border border-white/10" src="images/shop/flash/dale_31st.png" alt="Halloween" />
+        </div>
+        <div class="group rounded-xl overflow-hidden border border-white/10 bg-black/30">
+          <img loading="lazy" data-lightbox class="group-hover:scale-[1.03] transition-transform duration-300 aspect-[3/4] w-full object-cover rounded-xl border border-white/10" src="images/shop/flash/dale_13th.png" alt="Friday the 13th" />
+        </div>
+        <div class="group rounded-xl overflow-hidden border border-white/10 bg-black/30">
+          <img loading="lazy" data-lightbox class="group-hover:scale-[1.03] transition-transform duration-300 aspect-[3/4] w-full object-cover rounded-xl border border-white/10" src="images/shop/flash/dale_misc.png" alt="cruelbloomtattoo" />
+        </div>
+        <div class="group rounded-xl overflow-hidden border border-white/10 bg-black/30">
+          <img loading="lazy" data-lightbox class="group-hover:scale-[1.03] transition-transform duration-300 aspect-[3/4] w-full object-cover rounded-xl border border-white/10" src="images/shop/flash/dale_misc1.png" alt="cruelbloomtattoo1" />
+        </div>
+        <div class="group rounded-xl overflow-hidden border border-white/10 bg-black/30">
+          <img loading="lazy" data-lightbox class="group-hover:scale-[1.03] transition-transform duration-300 aspect-[3/4] w-full object-cover rounded-xl border border-white/10" src="images/shop/flash/716.png" alt="716" />
+        </div>
+        <div class="group rounded-xl overflow-hidden border border-white/10 bg-black/30">
+          <img loading="lazy" data-lightbox class="group-hover:scale-[1.03] transition-transform duration-300 aspect-[3/4] w-full object-cover rounded-xl border border-white/10" src="images/shop/flash/rose&dagger.png" alt="Rose and Dagger" />
+        </div>
+        <div class="group rounded-xl overflow-hidden border border-white/10 bg-black/30">
+          <img loading="lazy" data-lightbox class="group-hover:scale-[1.03] transition-transform duration-300 aspect-[3/4] w-full object-cover rounded-xl border border-white/10" src="images/shop/flash/sparrow.png" alt="Sparrow" />
+        </div>
+        <div class="group rounded-xl overflow-hidden border border-white/10 bg-black/30">
+          <img loading="lazy" data-lightbox class="group-hover:scale-[1.03] transition-transform duration-300 aspect-[3/4] w-full object-cover rounded-xl border border-white/10" src="images/shop/flash/heart&dagger.png" alt="Heart and Dagger" />
+        </div>
+        <!-- Example: <div class="group rounded-xl overflow-hidden border border-white/10 bg-black/30"><img loading="lazy" data-lightbox class="group-hover:scale-[1.03] transition-transform duration-300 aspect-[3/4] w-full object-cover rounded-xl border border-white/10" src="images/shop/flash/your_image.png" alt="Flash design description" /></div> -->
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+<footer class="border-t border-white/10 bg-black/60 footer-compact">
+  <div class="mx-auto max-w-7xl px-4 pt-3 pb-2 sm:px-6 sm:pt-4 flex flex-col gap-1 text-center text-zinc-500">
+    <!-- address + copyright -->
+    <p class="text-[0.5rem] sm:text-[0.65rem] leading-relaxed">
+      <a
+        href="https://www.google.com/maps?ll=43.023184,-78.877792&z=16&t=m&hl=en-US&gl=US&mapclient=embed&cid=5624804665664541133"
+        target="_blank"
+        rel="noopener"
+        class="hover:text-white transition inline-block"
+      >
+        American&nbsp;Skin&nbsp;Art<br>
+        44 Webster St&nbsp;&middot;&nbsp;North&nbsp;Tonawanda,&nbsp;NY<br>
+        &copy; <span id="year"></span> American Skin Art. All rights reserved.<br>
+      </a>
+    </p>
+    <a href="https://instagram.com/ffogekaj" target="_blank" rel="noopener" class="inline-block text-[0.55rem] uppercase tracking-[0.25em] text-zinc-500 hover:text-white"> Site by doomsday
+    </a>
+  </div>
+</footer>
+
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const mobileMenuButton = document.getElementById('mobile-menu-button');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const closeMobileMenu = document.getElementById('close-mobile-menu');
+
+      if (mobileMenuButton && mobileMenu && closeMobileMenu) {
+        mobileMenuButton.addEventListener('click', () => {
+          mobileMenu.classList.remove('hidden');
+        });
+
+        closeMobileMenu.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+        });
+
+        mobileMenu.addEventListener('click', (event) => {
+          if (event.target === mobileMenu) {
+            mobileMenu.classList.add('hidden');
+          }
+        });
+      }
+
+      const header = document.querySelector('header[role="banner"]');
+      const navBar = header ? header.querySelector('nav') : null;
+      const updateHeaderBackground = () => {
+        if (!header) return;
+        const isSolid = window.scrollY > 10;
+        header.classList.toggle('header-solid', isSolid);
+        if (navBar) navBar.classList.toggle('nav-solid', isSolid);
+      };
+      updateHeaderBackground();
+      window.addEventListener('scroll', updateHeaderBackground, { passive: true });
+    });
+  </script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+
+<!-- Floating Creator Badge -->
+<div id="creator-badge" class="fixed bottom-4 right-4 z-50 flex flex-col items-center gap-1.5 bg-black/60 backdrop-blur rounded-2xl shadow-lg px-2.5 py-2.5">
+    <a href="https://instagram.com/ffogekaj" target="_blank" rel="noopener"
+       aria-label="Visit @ffogekaj on Instagram"
+       class="block rounded-full p-0.5 bg-black/60">
+      <img src="images/artists/creator-pfp.png" alt="" class="w-[48px] h-[48px] rounded-full block select-none" />
+    </a>
+    <p class="text-[0.6rem] text-zinc-300 m-0 whitespace-nowrap select-none text-center tracking-[0.2em] uppercase">
+      doomsday
+    </p>
+  </div>
+
+  <!-- Lightbox for gallery -->
+  <div id="lightbox" class="hidden fixed inset-0 bg-black/90 backdrop-blur z-50 flex items-center justify-center p-6">
+    <button id="lightbox-prev" class="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/60 border border-white/20 flex items-center justify-center hover:bg-black/80 transition-colors z-10" aria-label="Previous image">
+      <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+      </svg>
+    </button>
+    <img class="max-h-[90vh] max-w-[90vw] rounded-xl border border-white/10" alt="Flash design preview" />
+    <button id="lightbox-next" class="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/60 border border-white/20 flex items-center justify-center hover:bg-black/80 transition-colors z-10" aria-label="Next image">
+      <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+      </svg>
+    </button>
+  </div>
+
+</body>
+</html>
