@@ -7,7 +7,16 @@
       "Bash(php:*)",
       "Bash(node generate-slideshow-json.js:*)",
       "Bash(python generate-slideshow-json.py:*)",
-      "Bash(test:*)"
+      "Bash(test:*)",
+      "Bash(for file in about.html artists.html contact.html faq.html flash.html shop.html index.html)",
+      "Bash(do if [ -f \"$file\" ])",
+      "Bash(then echo \"✓ $file exists\")",
+      "Bash(else echo \"✗ $file MISSING\")",
+      "Bash(fi)",
+      "Bash(done)",
+      "Bash(for file in sinisterblack_tattoos.html dannypeltier.ink.html cruelbloomtattoo.html deadedwalker_memorial.html)",
+      "Bash(then echo \"✓ artists/$file exists\")",
+      "Bash(else echo \"✗ artists/$file MISSING\")"
     ],
     "deny": [],
     "ask": []
