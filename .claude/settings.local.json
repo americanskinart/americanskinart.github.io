@@ -3,7 +3,11 @@
     "allow": [
       "Bash(grep:*)",
       "Bash(find:*)",
-      "Bash(mv:*)"
+      "Bash(mv:*)",
+      "Bash(php:*)",
+      "Bash(node generate-slideshow-json.js:*)",
+      "Bash(python generate-slideshow-json.py:*)",
+      "Bash(test:*)"
     ],
     "deny": [],
     "ask": []
